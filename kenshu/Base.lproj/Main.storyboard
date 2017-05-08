@@ -13,12 +13,12 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="BYZ-38-t0r" customClass="ViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="ViewContoroller">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -69,7 +69,7 @@
                                 </constraints>
                                 <state key="normal" title="ログイン"/>
                                 <connections>
-                                    <segue destination="KLr-Pl-jAQ" kind="show" animates="NO" id="bGf-O7-Nym"/>
+                                    <segue destination="KLr-Pl-jAQ" kind="presentation" id="XQz-ck-3Xe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -271,40 +271,44 @@
                                 </constraints>
                                 <state key="normal" title="もっと読み込む"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5N-wc-dbh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5N-wc-dbh">
                                 <rect key="frame" x="0.0" y="64" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="94" id="FJ2-Rl-Ahw">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="94" id="FJ2-Rl-Ahw" customClass="CustomTableViewCell" customModule="kenshu">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJ2-Rl-Ahw" id="ZL3-bO-S89">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XVA-1M-Ers">
-                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV6-5i-EMC">
+                                                    <rect key="frame" x="8" y="-3" width="144" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAa-vj-mzi">
-                                                    <rect key="frame" x="166" y="45" width="42" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-38-Sxk">
+                                                    <rect key="frame" x="160" y="8" width="200" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPC-uu-qwc">
-                                                    <rect key="frame" x="166" y="16" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP4-8p-Xca">
+                                                    <rect key="frame" x="160" y="36" width="200" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.7878564012" green="0.92145264149999995" blue="0.88472191410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="j1h-8F-G4Z" kind="showDetail" id="hRa-Im-cwR"/>
+                                            <outlet property="bookDiscription" destination="YP4-8p-Xca" id="k6J-ZL-s2Y"/>
+                                            <outlet property="bookImage" destination="eV6-5i-EMC" id="2Vj-sf-xzI"/>
+                                            <outlet property="bookTitle" destination="jKn-38-Sxk" id="2I5-6A-wWk"/>
+                                            <segue destination="j1h-8F-G4Z" kind="presentation" id="hRa-Im-cwR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -331,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ed-83-Zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="-636"/>
+            <point key="canvasLocation" x="1941.5999999999999" y="-636.4317841079461"/>
         </scene>
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
@@ -349,7 +353,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="書籍編集" id="g4W-UT-zog">
-                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="AAH-ok-hqq"/>
+                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="AAH-ok-hqq">
+                                            <connections>
+                                                <segue destination="eq1-Lk-yFc" kind="unwind" unwindAction="goBackWithSeque:" id="rne-LD-lSm"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="保存" id="wU0-LZ-cRA"/>
                                     </navigationItem>
                                 </items>
@@ -438,8 +446,10 @@
                             <constraint firstItem="djA-GI-YqA" firstAttribute="leading" secondItem="MeL-vB-ES8" secondAttribute="leading" id="z1A-VA-ArB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ptj-ZB-KNe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBH-Oq-lv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eq1-Lk-yFc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2841" y="-233"/>
         </scene>
