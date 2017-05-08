@@ -14,7 +14,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     let bookImage = ["NEKOIMG_1.jpg","NEKOIMG_2.jpg","NEKOIMG_3.jpg","NEKOIMG_4.jpg","NEKOIMG_5.jpg"]
     let bookTitle = ["ネコ1","ネコ2","ネコ3","ネコ4","ネコ5"]
-    let bookDiscription = ["説明1","説明2","説明3","説明4","説明5"]
+    let bookPrice = ["1000円","2000円","3000円","4000円","5000円"]
+    let bookUpdate = ["2017/05/01","2017/05/02","2017/05/03","2017/05/04","2017/05/05"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //セルに値を設定
         cell.bookImage.image = UIImage(named: bookImage[indexPath.row])
         cell.bookTitle.text = bookTitle[indexPath.row]
-        cell.bookDiscription.text = bookDiscription[indexPath.row]
+        cell.bookPrice.text = bookPrice[indexPath.row]
+        cell.bookUpdate.text = bookUpdate[indexPath.row]
         return cell
     }
 

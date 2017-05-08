@@ -14,8 +14,12 @@ class CustomTableViewCell: UITableViewCell {
 
     //タイトルを表示するLabel
     @IBOutlet weak var bookTitle: UILabel!
-    //説明を表示するLabel
-    @IBOutlet weak var bookDiscription: UILabel!
+    
+    //価格を表示するLabel
+    @IBOutlet weak var bookPrice: UILabel!
+    
+    //更新日を表示するLabel
+    @IBOutlet weak var bookUpdate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
