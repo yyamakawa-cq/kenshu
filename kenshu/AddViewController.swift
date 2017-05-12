@@ -13,12 +13,19 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     @IBOutlet weak var cameraView: UIImageView!
     @IBOutlet weak var addPic: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    
+        //デフォルト画像の表示
+        initImageView()
     }
     
+    //デフォルト画像の呼び出し処理
+    private func initImageView(){
+        let defaultImage = UIImage(named: "Sample.jpg")
+        cameraView.image = defaultImage
+    }
     
     //アルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject){
@@ -32,6 +39,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     
     }
+    
     //選んだ画像を表示
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{

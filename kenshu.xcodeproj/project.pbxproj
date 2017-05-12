@@ -18,6 +18,7 @@
 		504A3D261EB73503002FB17C /* NEKOIMG_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 504A3D211EB73503002FB17C /* NEKOIMG_2.jpg */; };
 		504A3D271EB73503002FB17C /* NEKOIMG_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 504A3D221EB73503002FB17C /* NEKOIMG_1.jpg */; };
 		504A3D291EB73A6E002FB17C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3D281EB73A6E002FB17C /* CustomTableViewCell.swift */; };
+		507D30A71EC5AABD00C4DF32 /* Sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 507D30A61EC5AABD00C4DF32 /* Sample.jpg */; };
 		50AA13571EADE46400E08A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA13561EADE46400E08A2A /* AppDelegate.swift */; };
 		50AA13591EADE46400E08A2A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA13581EADE46400E08A2A /* LoginViewController.swift */; };
 		50AA135C1EADE46400E08A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AA135A1EADE46400E08A2A /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		504A3D211EB73503002FB17C /* NEKOIMG_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEKOIMG_2.jpg; sourceTree = "<group>"; };
 		504A3D221EB73503002FB17C /* NEKOIMG_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEKOIMG_1.jpg; sourceTree = "<group>"; };
 		504A3D281EB73A6E002FB17C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		507D30A61EC5AABD00C4DF32 /* Sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sample.jpg; sourceTree = "<group>"; };
 		50AA13531EADE46400E08A2A /* kenshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kenshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AA13561EADE46400E08A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50AA13581EADE46400E08A2A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				504A3D201EB73503002FB17C /* NEKOIMG_3.jpg */,
 				504A3D211EB73503002FB17C /* NEKOIMG_2.jpg */,
 				504A3D221EB73503002FB17C /* NEKOIMG_1.jpg */,
+				507D30A61EC5AABD00C4DF32 /* Sample.jpg */,
 				50AA13621EADE46400E08A2A /* Info.plist */,
 			);
 			path = kenshu;
@@ -270,6 +273,7 @@
 				504A3D261EB73503002FB17C /* NEKOIMG_2.jpg in Resources */,
 				504A3D241EB73503002FB17C /* NEKOIMG_4.jpg in Resources */,
 				50AA135E1EADE46400E08A2A /* Assets.xcassets in Resources */,
+				507D30A71EC5AABD00C4DF32 /* Sample.jpg in Resources */,
 				50AA135C1EADE46400E08A2A /* Main.storyboard in Resources */,
 				504A3D231EB73503002FB17C /* NEKOIMG_5.jpg in Resources */,
 				504A3D251EB73503002FB17C /* NEKOIMG_3.jpg in Resources */,

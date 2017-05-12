@@ -20,12 +20,21 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //戻るボタンの設定
         let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.goBack))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        //既存画像の表示
+        initImageView()
     }
-    //戻るボタン押した時の呼び出しメソッド
+    
+    //戻るボタン押した時の処理
     func goBack(){
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    //既存画像の呼び出し処理
+    private func initImageView(){
+        let existingImage = UIImage(named: "NEKOIMG_1.jpg")
+        cameraView.image = existingImage
+    }
     
     //アルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject){
@@ -39,6 +48,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
     }
+    
     //選んだ画像を表示
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
