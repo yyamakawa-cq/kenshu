@@ -8,7 +8,10 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var cameraView: UIImageView!
+    @IBOutlet weak var addPic: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,28 @@ class EditViewController: UIViewController {
     func goBack(){
         self.navigationController?.popViewController(animated: true)
     }
+
+    
+    //アルバムを表示
+    @IBAction func showAlbum(_ sender: AnyObject){
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+            //インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+        
+    }
+    //選んだ画像を表示
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            cameraView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -380,12 +380,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ass-fm-9ki">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ass-fm-9ki">
                                 <rect key="frame" x="37" y="91" width="160" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="C9p-2s-kLA"/>
+                                    <constraint firstAttribute="width" constant="160" id="Qin-DG-4mn"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ew-u3-92q">
                                 <rect key="frame" x="275" y="126" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
+                                <connections>
+                                    <action selector="showAlbum:" destination="j1h-8F-G4Z" eventType="touchUpInside" id="jcr-zP-fMg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J6-G2-lTp">
                                 <rect key="frame" x="37" y="216" width="52" height="21"/>
@@ -462,6 +469,10 @@
                     <navigationItem key="navigationItem" title="書籍編集" id="Ptj-ZB-KNe">
                         <barButtonItem key="rightBarButtonItem" title="保存" id="xUS-Rt-X1i"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addPic" destination="2Ew-u3-92q" id="vFA-3c-S4m"/>
+                        <outlet property="cameraView" destination="ass-fm-9ki" id="Pfp-VA-xqg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBH-Oq-lv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -492,8 +503,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbM-B7-zwe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hbM-B7-zwe">
                                 <rect key="frame" x="37" y="88" width="160" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="YXp-Lu-UHu"/>
+                                    <constraint firstAttribute="height" constant="100" id="ihR-N2-zvo"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVH-PK-kpv">
                                 <rect key="frame" x="37" y="206" width="52" height="21"/>
@@ -530,6 +545,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5E-zK-fyh">
                                 <rect key="frame" x="275" y="123" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
+                                <connections>
+                                    <action selector="showAlbum:" destination="Dib-co-iIW" eventType="touchUpInside" id="6sY-Ay-xcc"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fp8-6T-dyA">
                                 <rect key="frame" x="37" y="406" width="300" height="216"/>
@@ -571,6 +589,10 @@
                             <constraint firstItem="5nr-1m-yJy" firstAttribute="top" secondItem="I4y-Vp-3wm" secondAttribute="bottom" constant="8" symbolic="YES" id="zfl-9G-FQv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addPic" destination="Y5E-zK-fyh" id="InJ-7z-L6q"/>
+                        <outlet property="cameraView" destination="hbM-B7-zwe" id="S3I-nT-dMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QHU-fP-99h" userLabel="Exit" sceneMemberID="exit"/>
