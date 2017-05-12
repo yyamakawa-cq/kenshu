@@ -12,10 +12,17 @@ class EditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        //戻るボタンの設定
+        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.goBack))
+        self.navigationItem.leftBarButtonItem = leftButton
     }
-
+    //戻るボタン押した時の呼び出しメソッド
+    func goBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

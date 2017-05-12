@@ -28,11 +28,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
-    //セルの個数を指定する
+    //リスト表示：セルの個数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookImage.count
     }
-    //セルに値を設定するデータソースメソッド
+    //リスト表示：セルに値を設定するデータソースメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell{
         //セルを取得
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CustomTableViewCell
