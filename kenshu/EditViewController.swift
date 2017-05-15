@@ -12,6 +12,12 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var cameraView: UIImageView!
     @IBOutlet weak var addPic: UIButton!
+    @IBOutlet weak var bookTitle: UITextField!
+    @IBOutlet weak var bookPrice: UITextField!
+
+    var selectedImage: UIImage!
+    var selectedTitle: String!
+    var selectedPrice: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +28,14 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.navigationItem.leftBarButtonItem = leftButton
         
         //既存画像の表示
-        initImageView()
-    }
+        cameraView.image = selectedImage
+        bookTitle.text = selectedTitle
+        bookPrice.text = selectedPrice
+        }
     
     //戻るボタン押した時の処理
     func goBack(){
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    //既存画像の呼び出し処理
-    private func initImageView(){
-        let existingImage = UIImage(named: "NEKOIMG_1.jpg")
-        cameraView.image = existingImage
     }
     
     //アルバムを表示

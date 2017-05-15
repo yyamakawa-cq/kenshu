@@ -17,6 +17,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let bookPrice = ["1000円","2000円","3000円","4000円","5000円"]
     let bookUpdate = ["2017/05/01","2017/05/02","2017/05/03","2017/05/04","2017/05/05"]
     
+    var selectedImage: UIImage?
+    var selectedTitle: String?
+    var selectedPrice: String?
+    //var selectedUpdate: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +47,29 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.bookPrice.text = bookPrice[indexPath.row]
         cell.bookUpdate.text = bookUpdate[indexPath.row]
         return cell
+    }
+    
+    //セルが選択された時
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print(bookUpdate[indexPath.row])
+        
+        selectedImage = UIImage(named:"\(bookImage[indexPath.row])")
+        selectedTitle = bookTitle[indexPath.row]
+        selectedPrice = bookPrice[indexPath.row]
+        
+        if selectedTitle != nil{
+            performSegue(withIdentifier: "list", sender: nil)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue,sender: Any!){
+        if (segue.identifier == "list"){
+            
+            let editVC: EditViewController = (segue.destination as? EditViewController)!
+            
+            editVC.selectedImage = selectedImage
+            editVC.selectedTitle = selectedTitle
+            editVC.selectedPrice = selectedPrice
+        }
     }
 
     /*

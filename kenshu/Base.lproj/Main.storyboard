@@ -335,7 +335,6 @@
                                             <outlet property="bookPrice" destination="Nnm-1g-8hW" id="UfE-U4-8qi"/>
                                             <outlet property="bookTitle" destination="3Sm-6c-fNf" id="EfS-Ke-32V"/>
                                             <outlet property="bookUpdate" destination="GSX-qQ-f2Z" id="oV9-5F-JcA"/>
-                                            <segue destination="j1h-8F-G4Z" kind="show" id="4we-Ax-hdE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -363,6 +362,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="j1h-8F-G4Z" kind="show" identifier="list" id="H05-x0-jC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ed-83-Zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,7 +373,7 @@
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
             <objects>
-                <viewController title="Edit" id="j1h-8F-G4Z" customClass="EditViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editBook" title="Edit" id="j1h-8F-G4Z" customClass="EditViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E5D-ij-2Md"/>
                         <viewControllerLayoutGuide type="bottom" id="1fW-QS-q6Z"/>
@@ -471,6 +473,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addPic" destination="2Ew-u3-92q" id="vFA-3c-S4m"/>
+                        <outlet property="bookPrice" destination="b7h-Ld-S1F" id="cy6-DX-H1h"/>
+                        <outlet property="bookTitle" destination="djA-GI-YqA" id="G2I-hv-Yps"/>
                         <outlet property="cameraView" destination="ass-fm-9ki" id="Pfp-VA-xqg"/>
                     </connections>
                 </viewController>
