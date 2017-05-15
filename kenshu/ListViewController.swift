@@ -20,7 +20,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var selectedImage: UIImage?
     var selectedTitle: String?
     var selectedPrice: String?
-    //var selectedUpdate: UILabel?
+    //var selectedUpdate: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
-    //リスト表示：セルの個数を指定する
+    //表示：リストのセルの個数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookImage.count
     }
-    //リスト表示：セルに値を設定するデータソースメソッド
+    //表示：リストのセルに値を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell{
         //セルを取得
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CustomTableViewCell
@@ -49,7 +49,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-    //セルが選択された時
+    //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print(bookUpdate[indexPath.row])
         

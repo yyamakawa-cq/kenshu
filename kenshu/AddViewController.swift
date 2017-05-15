@@ -18,13 +18,7 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         // Do any additional setup after loading the view.
     
         //デフォルト画像の表示
-        initImageView()
-    }
-    
-    //デフォルト画像の呼び出し処理
-    private func initImageView(){
-        let defaultImage = UIImage(named: "Sample.jpg")
-        cameraView.image = defaultImage
+        cameraView.image = UIImage(named: "Sample.jpg")
     }
     
     //アルバムを表示
