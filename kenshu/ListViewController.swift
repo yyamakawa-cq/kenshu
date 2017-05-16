@@ -15,12 +15,12 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let bookImage = ["NEKOIMG_1.jpg","NEKOIMG_2.jpg","NEKOIMG_3.jpg","NEKOIMG_4.jpg","NEKOIMG_5.jpg"]
     let bookTitle = ["ネコ1","ネコ2","ネコ3","ネコ4","ネコ5"]
     let bookPrice = ["1000円","2000円","3000円","4000円","5000円"]
-    let bookUpdate = ["2017/05/01","2017/05/02","2017/05/03","2017/05/04","2017/05/05"]
+    let bookDate = ["2017/05/01","2017/05/02","2017/05/03","2017/05/04","2017/05/05"]
     
     var selectedImage: UIImage?
     var selectedTitle: String?
     var selectedPrice: String?
-    //var selectedUpdate: String?
+    var selectedDate: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.bookImage.image = UIImage(named: bookImage[indexPath.row])
         cell.bookTitle.text = bookTitle[indexPath.row]
         cell.bookPrice.text = bookPrice[indexPath.row]
-        cell.bookUpdate.text = bookUpdate[indexPath.row]
+        cell.bookUpdate.text = bookDate[indexPath.row]
         return cell
     }
     
@@ -56,6 +56,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         selectedImage = UIImage(named:"\(bookImage[indexPath.row])")
         selectedTitle = bookTitle[indexPath.row]
         selectedPrice = bookPrice[indexPath.row]
+        selectedDate = bookDate[indexPath.row]
         
         if selectedTitle != nil{
             performSegue(withIdentifier: "list", sender: nil)
@@ -69,6 +70,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             editVC.selectedImage = selectedImage
             editVC.selectedTitle = selectedTitle
             editVC.selectedPrice = selectedPrice
+            editVC.selectedDate = selectedDate
         }
     }
 

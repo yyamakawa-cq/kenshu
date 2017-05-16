@@ -12,6 +12,10 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     @IBOutlet weak var cameraView: UIImageView!
     @IBOutlet weak var addPic: UIButton!
+    @IBOutlet weak var bookPurchaseDate: UITextField!
+    
+    var toolBar: UIToolbar!
+    var myDatePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +23,43 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     
         //デフォルト画像の表示
         cameraView.image = UIImage(named: "Sample.jpg")
+        
+        //Pickerの設定
+        myDatePicker = UIDatePicker()
+        myDatePicker.addTarget(self, action: #selector(AddViewController.onDidChangeDate(sender:)), for: .valueChanged)
+        myDatePicker.backgroundColor = UIColor.white
+        myDatePicker.datePickerMode = UIDatePickerMode.date
+        bookPurchaseDate.inputView = myDatePicker
+        
+        //Picker>ToolBarの設定
+        toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        //Picker>ToolBarButtonの設定
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AddViewController.doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        bookPurchaseDate.inputAccessoryView = toolBar
     }
     
+    /* 購入日入力の処理 */
+    //完了ボタンタップ
+    func doneClick(){
+        bookPurchaseDate.resignFirstResponder()
+    }
+    //変更された値をtextFieldに入れる
+    func onDidChangeDate(sender:UIDatePicker) {
+        let dateFormatter       = DateFormatter()
+        dateFormatter.locale    = Locale(identifier: "ja_JP")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        bookPurchaseDate.text = dateFormatter.string(from: sender.date)
+    }
+    
+    /* 画像添付のボタン */
     //アルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject){
         let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -33,7 +72,6 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     
     }
-    
     //選んだ画像を表示
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{

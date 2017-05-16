@@ -437,31 +437,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wxd-WW-vRR">
-                                <rect key="frame" x="37" y="408" width="300" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="516003929.77460098">
-                                    <!--2017-05-09 06:25:29 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="ja"/>
-                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5m-b5-kgB">
+                                <rect key="frame" x="37" y="416" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7DL-99-KtE"/>
+                                    <constraint firstAttribute="width" constant="300" id="RPq-jH-S2X"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ozw-mr-pqG" firstAttribute="leading" secondItem="b7h-Ld-S1F" secondAttribute="leading" id="0T9-fj-mCT"/>
                             <constraint firstItem="b7h-Ld-S1F" firstAttribute="top" secondItem="MeL-vB-ES8" secondAttribute="bottom" constant="8" symbolic="YES" id="0Zy-Hz-w6S"/>
                             <constraint firstItem="djA-GI-YqA" firstAttribute="top" secondItem="4J6-G2-lTp" secondAttribute="bottom" constant="8" symbolic="YES" id="2Vd-ES-XyC"/>
-                            <constraint firstItem="Wxd-WW-vRR" firstAttribute="trailing" secondItem="b7h-Ld-S1F" secondAttribute="trailing" id="58g-J2-KLK"/>
                             <constraint firstItem="4J6-G2-lTp" firstAttribute="leading" secondItem="djA-GI-YqA" secondAttribute="leading" id="6NS-RU-d3o"/>
                             <constraint firstItem="2Ew-u3-92q" firstAttribute="leading" secondItem="ass-fm-9ki" secondAttribute="trailing" constant="78" id="6Ub-TT-nTg"/>
                             <constraint firstItem="2Ew-u3-92q" firstAttribute="top" secondItem="E5D-ij-2Md" secondAttribute="bottom" constant="62" id="79h-o5-Qmo"/>
                             <constraint firstItem="djA-GI-YqA" firstAttribute="centerX" secondItem="edv-vm-Cs1" secondAttribute="centerX" id="E1w-R6-Zeo"/>
                             <constraint firstItem="b7h-Ld-S1F" firstAttribute="centerX" secondItem="edv-vm-Cs1" secondAttribute="centerX" id="Lfh-dM-xBd"/>
                             <constraint firstItem="ass-fm-9ki" firstAttribute="centerY" secondItem="2Ew-u3-92q" secondAttribute="centerY" id="TXT-JM-RqK"/>
+                            <constraint firstItem="i5m-b5-kgB" firstAttribute="top" secondItem="Ozw-mr-pqG" secondAttribute="bottom" constant="8" symbolic="YES" id="aLF-4K-xfX"/>
                             <constraint firstItem="4J6-G2-lTp" firstAttribute="top" secondItem="ass-fm-9ki" secondAttribute="bottom" constant="25" id="dDc-1Z-lA1"/>
                             <constraint firstItem="ass-fm-9ki" firstAttribute="top" secondItem="E5D-ij-2Md" secondAttribute="bottom" constant="27" id="e6s-Jc-wN4"/>
+                            <constraint firstItem="i5m-b5-kgB" firstAttribute="centerX" secondItem="edv-vm-Cs1" secondAttribute="centerX" id="eIY-WL-H51"/>
                             <constraint firstItem="2Ew-u3-92q" firstAttribute="trailing" secondItem="djA-GI-YqA" secondAttribute="trailing" id="jg5-V8-fZJ"/>
-                            <constraint firstItem="Ozw-mr-pqG" firstAttribute="leading" secondItem="Wxd-WW-vRR" secondAttribute="leading" id="jwu-uc-hQ0"/>
-                            <constraint firstItem="Wxd-WW-vRR" firstAttribute="top" secondItem="Ozw-mr-pqG" secondAttribute="bottom" id="mkm-wO-hTN"/>
                             <constraint firstItem="Ozw-mr-pqG" firstAttribute="top" secondItem="b7h-Ld-S1F" secondAttribute="bottom" constant="8" symbolic="YES" id="nCL-gZ-aOh"/>
                             <constraint firstItem="MeL-vB-ES8" firstAttribute="top" secondItem="djA-GI-YqA" secondAttribute="bottom" constant="8" symbolic="YES" id="oII-KR-6Th"/>
                             <constraint firstItem="ass-fm-9ki" firstAttribute="leading" secondItem="4J6-G2-lTp" secondAttribute="leading" id="yb9-RV-59G"/>
@@ -474,6 +476,7 @@
                     <connections>
                         <outlet property="addPic" destination="2Ew-u3-92q" id="vFA-3c-S4m"/>
                         <outlet property="bookPrice" destination="b7h-Ld-S1F" id="cy6-DX-H1h"/>
+                        <outlet property="bookPurchaseDate" destination="i5m-b5-kgB" id="f8c-Ld-FZb"/>
                         <outlet property="bookTitle" destination="djA-GI-YqA" id="G2I-hv-Yps"/>
                         <outlet property="cameraView" destination="ass-fm-9ki" id="Pfp-VA-xqg"/>
                     </connections>
@@ -553,19 +556,22 @@
                                     <action selector="showAlbum:" destination="Dib-co-iIW" eventType="touchUpInside" id="6sY-Ay-xcc"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fp8-6T-dyA">
-                                <rect key="frame" x="37" y="406" width="300" height="216"/>
-                                <date key="date" timeIntervalSinceReferenceDate="516003904.80245602">
-                                    <!--2017-05-09 06:25:04 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="ja"/>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-h0-d5v">
                                 <rect key="frame" x="37" y="377" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="368-lY-5jC">
+                                <rect key="frame" x="37" y="406" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="G58-C2-Paz"/>
+                                    <constraint firstAttribute="height" constant="44" id="lIs-HY-TBq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -574,16 +580,15 @@
                             <constraint firstItem="I4y-Vp-3wm" firstAttribute="leading" secondItem="5nr-1m-yJy" secondAttribute="leading" id="F4B-BK-alL"/>
                             <constraint firstItem="LVH-PK-kpv" firstAttribute="leading" secondItem="cLa-T9-39h" secondAttribute="leading" id="Fgc-WE-qRR"/>
                             <constraint firstItem="cLa-T9-39h" firstAttribute="centerX" secondItem="3ix-hr-XrT" secondAttribute="centerX" id="IGD-5Z-ji5"/>
-                            <constraint firstItem="fp8-6T-dyA" firstAttribute="top" secondItem="7Yv-h0-d5v" secondAttribute="bottom" constant="8" symbolic="YES" id="LSg-AB-d60"/>
+                            <constraint firstItem="368-lY-5jC" firstAttribute="centerX" secondItem="3ix-hr-XrT" secondAttribute="centerX" id="Na9-KD-Frv"/>
+                            <constraint firstItem="368-lY-5jC" firstAttribute="top" secondItem="7Yv-h0-d5v" secondAttribute="bottom" constant="8" symbolic="YES" id="OcI-dw-ZV0"/>
                             <constraint firstItem="Lcs-k3-05a" firstAttribute="leading" secondItem="3ix-hr-XrT" secondAttribute="leading" id="V05-AC-4LF"/>
                             <constraint firstItem="LVH-PK-kpv" firstAttribute="top" secondItem="hbM-B7-zwe" secondAttribute="bottom" constant="18" id="VPb-LT-STV"/>
                             <constraint firstItem="I4y-Vp-3wm" firstAttribute="top" secondItem="cLa-T9-39h" secondAttribute="bottom" constant="10" id="YvX-SD-BAJ"/>
                             <constraint firstItem="Lcs-k3-05a" firstAttribute="top" secondItem="Mj9-qI-vOG" secondAttribute="bottom" id="bKB-Ul-MSL"/>
                             <constraint firstItem="hbM-B7-zwe" firstAttribute="top" secondItem="Lcs-k3-05a" secondAttribute="bottom" constant="24" id="bke-gR-SRn"/>
-                            <constraint firstItem="fp8-6T-dyA" firstAttribute="trailing" secondItem="5nr-1m-yJy" secondAttribute="trailing" id="cQh-dk-dw8"/>
                             <constraint firstItem="hbM-B7-zwe" firstAttribute="leading" secondItem="LVH-PK-kpv" secondAttribute="leading" id="dcr-MS-3Vm"/>
                             <constraint firstItem="Y5E-zK-fyh" firstAttribute="leading" secondItem="hbM-B7-zwe" secondAttribute="trailing" constant="78" id="eV7-I0-BWs"/>
-                            <constraint firstItem="7Yv-h0-d5v" firstAttribute="leading" secondItem="fp8-6T-dyA" secondAttribute="leading" id="hxH-28-lKu"/>
                             <constraint firstItem="Y5E-zK-fyh" firstAttribute="top" secondItem="Lcs-k3-05a" secondAttribute="bottom" constant="59" id="jxH-bS-YZC"/>
                             <constraint firstItem="Lcs-k3-05a" firstAttribute="centerX" secondItem="cLa-T9-39h" secondAttribute="centerX" id="miZ-2n-ohw"/>
                             <constraint firstItem="hbM-B7-zwe" firstAttribute="centerY" secondItem="Y5E-zK-fyh" secondAttribute="centerY" id="o68-7d-FeG"/>
@@ -595,13 +600,14 @@
                     </view>
                     <connections>
                         <outlet property="addPic" destination="Y5E-zK-fyh" id="InJ-7z-L6q"/>
+                        <outlet property="bookPurchaseDate" destination="368-lY-5jC" id="bg4-Ww-ggP"/>
                         <outlet property="cameraView" destination="hbM-B7-zwe" id="S3I-nT-dMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QHU-fP-99h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3519" y="-1437"/>
+            <point key="canvasLocation" x="3517.5999999999999" y="-1437.0314842578712"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FeO-5b-jqv">
