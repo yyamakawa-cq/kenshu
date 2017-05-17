@@ -9,10 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
+    
+    @IBAction func goBack(seque: UIStoryboardSegue){ }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    //初回起動だったらアカウント画面をモーダルで表示
+    override func viewDidAppear(_ animated: Bool) {
+        let userDefault = UserDefaults.standard
+        if userDefault.bool(forKey: "firstLaunch") {
+            let storyboard: UIStoryboard = self.storyboard!
+            let firstView = storyboard.instantiateViewController(withIdentifier: "Account")
+            present(firstView, animated: true, completion: nil)
+            userDefault.set(false, forKey: "firstLaunch")
+        }
     }
 
     override func didReceiveMemoryWarning() {
