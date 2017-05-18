@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		504A3CD91EB34420002FB17C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CD81EB34420002FB17C /* ListViewController.swift */; };
+		504A3CD91EB34420002FB17C /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CD81EB34420002FB17C /* BookListViewController.swift */; };
 		504A3CDB1EB3461E002FB17C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CDA1EB3461E002FB17C /* SettingViewController.swift */; };
 		504A3CDF1EB3475D002FB17C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CDE1EB3475D002FB17C /* AccountViewController.swift */; };
-		504A3CE11EB34805002FB17C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CE01EB34805002FB17C /* EditViewController.swift */; };
-		504A3CE31EB3487A002FB17C /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CE21EB3487A002FB17C /* AddViewController.swift */; };
+		504A3CE11EB34805002FB17C /* BookDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CE01EB34805002FB17C /* BookDataViewController.swift */; };
 		504A3D231EB73503002FB17C /* NEKOIMG_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 504A3D1E1EB73503002FB17C /* NEKOIMG_5.jpg */; };
 		504A3D241EB73503002FB17C /* NEKOIMG_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 504A3D1F1EB73503002FB17C /* NEKOIMG_4.jpg */; };
 		504A3D251EB73503002FB17C /* NEKOIMG_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 504A3D201EB73503002FB17C /* NEKOIMG_3.jpg */; };
@@ -46,11 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		504A3CD81EB34420002FB17C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		504A3CD81EB34420002FB17C /* BookListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		504A3CDA1EB3461E002FB17C /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		504A3CDE1EB3475D002FB17C /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		504A3CE01EB34805002FB17C /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		504A3CE21EB3487A002FB17C /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		504A3CE01EB34805002FB17C /* BookDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataViewController.swift; sourceTree = "<group>"; };
 		504A3D1E1EB73503002FB17C /* NEKOIMG_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEKOIMG_5.jpg; sourceTree = "<group>"; };
 		504A3D1F1EB73503002FB17C /* NEKOIMG_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEKOIMG_4.jpg; sourceTree = "<group>"; };
 		504A3D201EB73503002FB17C /* NEKOIMG_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEKOIMG_3.jpg; sourceTree = "<group>"; };
@@ -125,11 +123,10 @@
 				50AA13581EADE46400E08A2A /* LoginViewController.swift */,
 				50AA135A1EADE46400E08A2A /* Main.storyboard */,
 				504A3D281EB73A6E002FB17C /* CustomTableViewCell.swift */,
-				504A3CE21EB3487A002FB17C /* AddViewController.swift */,
-				504A3CE01EB34805002FB17C /* EditViewController.swift */,
+				504A3CE01EB34805002FB17C /* BookDataViewController.swift */,
 				504A3CDE1EB3475D002FB17C /* AccountViewController.swift */,
 				504A3CDA1EB3461E002FB17C /* SettingViewController.swift */,
-				504A3CD81EB34420002FB17C /* ListViewController.swift */,
+				504A3CD81EB34420002FB17C /* BookListViewController.swift */,
 				50AA135D1EADE46400E08A2A /* Assets.xcassets */,
 				50AA135F1EADE46400E08A2A /* LaunchScreen.storyboard */,
 				504A3D1E1EB73503002FB17C /* NEKOIMG_5.jpg */,
@@ -304,11 +301,10 @@
 				50AA13591EADE46400E08A2A /* LoginViewController.swift in Sources */,
 				50AA13571EADE46400E08A2A /* AppDelegate.swift in Sources */,
 				504A3D291EB73A6E002FB17C /* CustomTableViewCell.swift in Sources */,
-				504A3CE31EB3487A002FB17C /* AddViewController.swift in Sources */,
 				504A3CDF1EB3475D002FB17C /* AccountViewController.swift in Sources */,
-				504A3CD91EB34420002FB17C /* ListViewController.swift in Sources */,
+				504A3CD91EB34420002FB17C /* BookListViewController.swift in Sources */,
 				504A3CDB1EB3461E002FB17C /* SettingViewController.swift in Sources */,
-				504A3CE11EB34805002FB17C /* EditViewController.swift in Sources */,
+				504A3CE11EB34805002FB17C /* BookDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

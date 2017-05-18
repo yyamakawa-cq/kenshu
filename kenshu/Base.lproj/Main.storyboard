@@ -259,7 +259,7 @@
         <!--List-->
         <scene sceneID="C75-Ar-Qky">
             <objects>
-                <viewController title="List" id="Nbp-6I-Qo9" customClass="ListViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="List" id="Nbp-6I-Qo9" customClass="BookListViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hnX-do-jdH"/>
                         <viewControllerLayoutGuide type="bottom" id="4C7-bu-4CP"/>
@@ -373,7 +373,7 @@
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
             <objects>
-                <viewController storyboardIdentifier="editBook" title="Edit" id="j1h-8F-G4Z" customClass="EditViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editBook" title="Edit" id="j1h-8F-G4Z" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E5D-ij-2Md"/>
                         <viewControllerLayoutGuide type="bottom" id="1fW-QS-q6Z"/>
@@ -393,7 +393,7 @@
                                 <rect key="frame" x="275" y="126" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="showAlbum:" destination="j1h-8F-G4Z" eventType="touchUpInside" id="jcr-zP-fMg"/>
+                                    <action selector="showAlbum:" destination="j1h-8F-G4Z" eventType="touchUpInside" id="vZZ-LV-2gf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J6-G2-lTp">
@@ -474,11 +474,11 @@
                         <barButtonItem key="rightBarButtonItem" title="保存" id="xUS-Rt-X1i"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPic" destination="2Ew-u3-92q" id="vFA-3c-S4m"/>
+                        <outlet property="addPicButton" destination="2Ew-u3-92q" id="5Ns-x7-jHq"/>
+                        <outlet property="bookImage" destination="ass-fm-9ki" id="MZ1-7J-3Ed"/>
                         <outlet property="bookPrice" destination="b7h-Ld-S1F" id="cy6-DX-H1h"/>
                         <outlet property="bookPurchaseDate" destination="i5m-b5-kgB" id="f8c-Ld-FZb"/>
                         <outlet property="bookTitle" destination="djA-GI-YqA" id="G2I-hv-Yps"/>
-                        <outlet property="cameraView" destination="ass-fm-9ki" id="Pfp-VA-xqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBH-Oq-lv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -488,7 +488,7 @@
         <!--Add-->
         <scene sceneID="kwt-Pi-eYa">
             <objects>
-                <viewController title="Add" id="Dib-co-iIW" customClass="AddViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add" id="Dib-co-iIW" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mj9-qI-vOG"/>
                         <viewControllerLayoutGuide type="bottom" id="NSq-QE-UWX"/>
@@ -553,7 +553,7 @@
                                 <rect key="frame" x="275" y="123" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="showAlbum:" destination="Dib-co-iIW" eventType="touchUpInside" id="6sY-Ay-xcc"/>
+                                    <action selector="showAlbum:" destination="Dib-co-iIW" eventType="touchUpInside" id="J1H-1r-B0P"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-h0-d5v">
@@ -599,9 +599,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addPic" destination="Y5E-zK-fyh" id="InJ-7z-L6q"/>
+                        <outlet property="addPicButton" destination="Y5E-zK-fyh" id="ml0-ov-HuE"/>
+                        <outlet property="bookImage" destination="hbM-B7-zwe" id="v9q-kU-dYa"/>
                         <outlet property="bookPurchaseDate" destination="368-lY-5jC" id="bg4-Ww-ggP"/>
-                        <outlet property="cameraView" destination="hbM-B7-zwe" id="S3I-nT-dMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  BookListViewController.swift
 //  kenshu
 //
 //  Created by yukari on 2017/04/28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func goBack(seque: UIStoryboardSegue){ }
     
@@ -65,7 +65,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func prepare(for segue: UIStoryboardSegue,sender: Any!){
         if (segue.identifier == "list"){
             
-            let editVC: EditViewController = (segue.destination as? EditViewController)!
+            let editVC: BookDataViewController = (segue.destination as? BookDataViewController)!
             
             editVC.selectedImage = selectedImage
             editVC.selectedTitle = selectedTitle
