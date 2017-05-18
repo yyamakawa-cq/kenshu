@@ -28,6 +28,8 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+        /* 編集時の設定 */
         //戻るボタンの設定
         let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BookDataViewController.goBack))
         self.navigationItem.leftBarButtonItem = leftButton
@@ -42,7 +44,9 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
             bookImage.image = UIImage(named: "Sample.jpg")
         }
         
-        //Pickerの設定
+        
+        /* 購入日のピッカー設定 */
+        //購入日入力：Pickerの設定
         bookPurchaseDatePicker = UIDatePicker()
         bookPurchaseDatePicker.addTarget(self, action: #selector(BookDataViewController.onDidChangeDate(sender:)), for: .valueChanged)
         bookPurchaseDatePicker.backgroundColor = UIColor.white
@@ -64,7 +68,8 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPurchaseDate.inputAccessoryView = datePickerToolBar
         }
     
-    /* 戻るボタン押した時の処理 */
+    /* 編集画面 */
+    //戻るボタン押した時の処理
     func goBack(){
         self.navigationController?.popViewController(animated: true)
     }

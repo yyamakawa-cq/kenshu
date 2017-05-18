@@ -475,7 +475,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addPicButton" destination="2Ew-u3-92q" id="5Ns-x7-jHq"/>
-                        <outlet property="bookImage" destination="ass-fm-9ki" id="MZ1-7J-3Ed"/>
+                        <outlet property="bookImage" destination="ass-fm-9ki" id="bKV-e2-JND"/>
                         <outlet property="bookPrice" destination="b7h-Ld-S1F" id="cy6-DX-H1h"/>
                         <outlet property="bookPurchaseDate" destination="i5m-b5-kgB" id="f8c-Ld-FZb"/>
                         <outlet property="bookTitle" destination="djA-GI-YqA" id="G2I-hv-Yps"/>
@@ -600,8 +600,10 @@
                     </view>
                     <connections>
                         <outlet property="addPicButton" destination="Y5E-zK-fyh" id="ml0-ov-HuE"/>
-                        <outlet property="bookImage" destination="hbM-B7-zwe" id="v9q-kU-dYa"/>
+                        <outlet property="bookImage" destination="hbM-B7-zwe" id="OVw-u7-oIi"/>
+                        <outlet property="bookPrice" destination="5nr-1m-yJy" id="cGs-Xx-MTm"/>
                         <outlet property="bookPurchaseDate" destination="368-lY-5jC" id="bg4-Ww-ggP"/>
+                        <outlet property="bookTitle" destination="cLa-T9-39h" id="VYQ-2M-Wxt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
