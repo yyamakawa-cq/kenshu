@@ -14,14 +14,6 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var selectedPrice: String?
     var selectedDate: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     //表示：リストのセルの個数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookImage.count
@@ -40,7 +32,6 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(bookUpdate[indexPath.row])
         
         selectedImage = UIImage(named:"\(bookImage[indexPath.row])")
         selectedTitle = bookTitle[indexPath.row]
@@ -51,10 +42,18 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             performSegue(withIdentifier: "list", sender: nil)
         }
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
     override func prepare(for segue: UIStoryboardSegue,sender: Any!){
         if (segue.identifier == "list"){
             
-            let editVC: BookDataViewController = (segue.destination as? BookDataViewController)!
+            let editVC = (segue.destination as? BookDataViewController)!
             
             editVC.selectedImage = selectedImage
             editVC.selectedTitle = selectedTitle

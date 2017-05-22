@@ -7,6 +7,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     //初回起動だったらアカウント画面をモーダルで表示
     override func viewDidAppear(_ animated: Bool) {
@@ -18,11 +21,5 @@ class ViewController: UIViewController {
             userDefault.set(false, forKey: "firstLaunch")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-
 }
 

@@ -58,6 +58,10 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
         }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     /* 編集画面 */
     //戻るボタン押した時の処理
     func goBack(){
@@ -82,8 +86,8 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     /* 画像添付のボタン */
     //アルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject){
-        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary){
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             //インスタンスの作成
             let cameraPicker = UIImagePickerController()
             cameraPicker.sourceType = sourceType
@@ -99,10 +103,4 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }
