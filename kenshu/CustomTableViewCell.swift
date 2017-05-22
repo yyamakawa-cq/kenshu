@@ -13,13 +13,13 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var bookImage: UIImageView!
 
     //タイトルを表示するLabel
-    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookTitleLabel: UILabel!
     
     //価格を表示するLabel
-    @IBOutlet weak var bookPrice: UILabel!
+    @IBOutlet weak var bookPriceLabel: UILabel!
     
     //更新日を表示するLabel
-    @IBOutlet weak var bookUpdate: UILabel!
+    @IBOutlet weak var bookPurchaseDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -43,9 +43,9 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CustomTableViewCell
         //セルに値を設定
         cell.bookImage.image = UIImage(named: bookImage[indexPath.row])
-        cell.bookTitle.text = bookTitle[indexPath.row]
-        cell.bookPrice.text = bookPrice[indexPath.row]
-        cell.bookUpdate.text = bookDate[indexPath.row]
+        cell.bookTitleLabel.text = bookTitle[indexPath.row]
+        cell.bookPriceLabel.text = bookPrice[indexPath.row]
+        cell.bookPurchaseDateLabel.text = bookDate[indexPath.row]
         return cell
     }
     

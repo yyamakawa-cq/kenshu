@@ -12,9 +12,9 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var addPicButton: UIButton!
-    @IBOutlet weak var bookTitle: UITextField!
-    @IBOutlet weak var bookPrice: UITextField!
-    @IBOutlet weak var bookPurchaseDate: UITextField!
+    @IBOutlet weak var bookTitleTextField: UITextField!
+    @IBOutlet weak var bookPriceTextField: UITextField!
+    @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
     var selectedImage: UIImage!
     var selectedTitle: String!
@@ -37,9 +37,9 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         //既存の値の表示
         if selectedTitle != nil{
             bookImage.image = selectedImage
-            bookTitle.text = selectedTitle
-            bookPrice.text = selectedPrice
-            bookPurchaseDate.text = selectedDate
+            bookTitleTextField.text = selectedTitle
+            bookPriceTextField.text = selectedPrice
+            bookPurchaseDateTextField.text = selectedDate
         }else{
             bookImage.image = UIImage(named: "Sample.jpg")
         }
@@ -51,7 +51,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPurchaseDatePicker.addTarget(self, action: #selector(BookDataViewController.onDidChangeDate(sender:)), for: .valueChanged)
         bookPurchaseDatePicker.backgroundColor = UIColor.white
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
-        bookPurchaseDate.inputView = bookPurchaseDatePicker
+        bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         
         //Picker>ToolBarの設定
         datePickerToolBar = UIToolbar()
@@ -65,7 +65,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
         datePickerToolBar.isUserInteractionEnabled = true
         
-        bookPurchaseDate.inputAccessoryView = datePickerToolBar
+        bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
         }
     
     /* 編集画面 */
@@ -78,14 +78,14 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     /* 購入日入力の処理 */
     //完了ボタンタップ
     func datePickerDoneClick(){
-        bookPurchaseDate.resignFirstResponder()
+        bookPurchaseDateTextField.resignFirstResponder()
     }
     //変更された値をtextFieldに入れる
     func onDidChangeDate(sender:UIDatePicker) {
         let dateFormatter       = DateFormatter()
         dateFormatter.locale    = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        bookPurchaseDate.text = dateFormatter.string(from: sender.date)
+        bookPurchaseDateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     
