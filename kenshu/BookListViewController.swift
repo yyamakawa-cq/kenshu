@@ -1,11 +1,3 @@
-//
-//  BookListViewController.swift
-//  kenshu
-//
-//  Created by yukari on 2017/04/28.
-//  Copyright © 2017年 yukari. All rights reserved.
-//
-
 import UIKit
 
 class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -24,13 +16,10 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //表示：リストのセルの個数を指定する
@@ -73,15 +62,5 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             editVC.selectedDate = selectedDate
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 

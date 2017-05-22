@@ -1,11 +1,3 @@
-//
-//  CustomTableViewCell.swift
-//  kenshu
-//
-//  Created by yukari on 2017/05/01.
-//  Copyright © 2017年 yukari. All rights reserved.
-//
-
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
@@ -23,13 +15,10 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
