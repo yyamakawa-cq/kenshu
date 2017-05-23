@@ -379,7 +379,7 @@
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
             <objects>
-                <viewController storyboardIdentifier="editBook" title="Edit" id="j1h-8F-G4Z" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit" id="j1h-8F-G4Z" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E5D-ij-2Md"/>
                         <viewControllerLayoutGuide type="bottom" id="1fW-QS-q6Z"/>
@@ -452,6 +452,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="bookPurchaseDateTouchDown" destination="j1h-8F-G4Z" eventType="touchDown" id="t8O-yK-IwS"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -577,6 +580,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="bookPurchaseDateTouchDown" destination="Dib-co-iIW" eventType="touchDown" id="3e7-Un-kkx"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
