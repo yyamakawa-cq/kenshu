@@ -29,7 +29,12 @@ class BookListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectBookData = ["bookImage":bookImage[indexPath.row], "bookTitle":bookTitle[indexPath.row], "bookPrice":bookPrice[indexPath.row], "bookPurchaseDate":bookPurchaseDate[indexPath.row]]
+        let selectBookData = [
+            "bookImage":bookImage[indexPath.row],
+            "bookTitle":bookTitle[indexPath.row],
+            "bookPrice":bookPrice[indexPath.row],
+            "bookPurchaseDate":bookPurchaseDate[indexPath.row]
+        ]
         performSegue(withIdentifier: "list", sender:selectBookData)
         }
     override func prepare(for segue: UIStoryboardSegue,sender: Any?){

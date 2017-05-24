@@ -9,36 +9,27 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
     var selectBookData:[String : String] = [:]
-    
-    var datePickerToolBar: UIToolbar!
-    var bookPurchaseDatePicker: UIDatePicker!
-    
-    /* 編集画面 */
-    //戻るボタン押した時の処理
-    func goBack(){
-        self.navigationController?.popViewController(animated: true)
-    }
-
-    /* 購入日入力の処理 */
+   
+    /* 購入日入力 */
     @IBAction func bookPurchaseDateTouchDown() {
-        //購入日入力：Pickerの設定
+        //Pickerの表示
+        var bookPurchaseDatePicker: UIDatePicker!
+        var datePickerToolBar: UIToolbar!
+        
         bookPurchaseDatePicker = UIDatePicker()
         bookPurchaseDatePicker.addTarget(self, action: #selector(BookDataViewController.onDidChangeDate(sender:)), for: .valueChanged)
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
         
         datePickerToolBar = UIToolbar()
-        datePickerToolBar.barStyle = .default
-        datePickerToolBar.isTranslucent = true
-        datePickerToolBar.sizeToFit()
-        
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(BookDataViewController.datePickerDoneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
+        datePickerToolBar.sizeToFit()
         datePickerToolBar.isUserInteractionEnabled = true
         bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
     }
-    //変更された値をtextFieldに入れる
+    //Pickerで選択した値をTextFieldに入れる
     func onDidChangeDate(sender:UIDatePicker) {
         let dateFormatter       = DateFormatter()
         dateFormatter.locale    = Locale(identifier: "ja_JP")
@@ -49,26 +40,32 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     func datePickerDoneClick(){
         bookPurchaseDateTextField.resignFirstResponder()
     }
-    /* 画像添付のボタン */
-    //アルバムを表示
+
+    /* 画像添付 */
+    //画像添付ボタンタップでアルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject){
         let sourceType = UIImagePickerControllerSourceType.photoLibrary
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            //インスタンスの作成
             let cameraPicker = UIImagePickerController()
             cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
             self.present(cameraPicker, animated: true, completion: nil)
         }
-        
     }
-    //選んだ画像を表示
+    //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             bookImage.image = pickedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    /* 編集画面 */
+    //戻るボタン押した時の処理
+    func goBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         /* 書籍編集画面 */
