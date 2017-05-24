@@ -1,7 +1,6 @@
 import UIKit
 
 class BookDataViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var addPicButton: UIButton!
     @IBOutlet weak var bookTitleTextField: UITextField!
@@ -9,20 +8,26 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
     var selectBookData:[String : String] = [:]
-   
     /* 購入日入力 */
     @IBAction func bookPurchaseDateTouchDown() {
         //Pickerの表示
         var bookPurchaseDatePicker: UIDatePicker!
         var datePickerToolBar: UIToolbar!
-        
         bookPurchaseDatePicker = UIDatePicker()
-        bookPurchaseDatePicker.addTarget(self, action: #selector(BookDataViewController.onDidChangeDate(sender:)), for: .valueChanged)
+        bookPurchaseDatePicker.addTarget(
+            self,
+            action: #selector(BookDataViewController.onDidChangeDate(sender:)),
+            for: .valueChanged
+        )
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
-        
         datePickerToolBar = UIToolbar()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(BookDataViewController.datePickerDoneClick))
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .plain,
+            target: self,
+            action: #selector(BookDataViewController.datePickerDoneClick)
+        )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
         datePickerToolBar.sizeToFit()
@@ -37,15 +42,15 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPurchaseDateTextField.text = dateFormatter.string(from: sender.date)
     }
     //完了ボタンタップ
-    func datePickerDoneClick(){
+    func datePickerDoneClick() {
         bookPurchaseDateTextField.resignFirstResponder()
     }
 
     /* 画像添付 */
     //画像添付ボタンタップでアルバムを表示
-    @IBAction func showAlbum(_ sender: AnyObject){
+    @IBAction func showAlbum(_ sender: AnyObject) {
         let sourceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let cameraPicker = UIImagePickerController()
             cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
@@ -54,23 +59,26 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             bookImage.image = pickedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
     /* 編集画面 */
     //戻るボタン押した時の処理
-    func goBack(){
+    func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         /* 書籍編集画面 */
         //戻るボタン
-        let leftButton = UIBarButtonItem(title: "戻る", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BookDataViewController.goBack))
+        let leftButton = UIBarButtonItem(
+            title: "戻る",
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            action: #selector(BookDataViewController.goBack)
+        )
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
         bookImage.image = UIImage(named:"\(selectBookData["bookImage"] ?? "Sample.jpg")")

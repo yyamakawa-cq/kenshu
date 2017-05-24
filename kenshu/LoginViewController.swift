@@ -1,16 +1,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBAction func goBack(seque: UIStoryboardSegue){ }
-    
+    @IBAction func goBack(seque: UIStoryboardSegue) { }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     //初回起動だったらアカウント画面をモーダルで表示
     override func viewDidAppear(_ animated: Bool) {
         let userDefault = UserDefaults.standard
@@ -22,4 +19,3 @@ class ViewController: UIViewController {
         }
     }
 }
-

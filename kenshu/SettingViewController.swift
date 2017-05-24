@@ -1,9 +1,7 @@
 import UIKit
 
 class SettingViewController: UIViewController {
-    
-    @IBAction func goBack(seque: UIStoryboardSegue){ }
-
+    @IBAction func goBack(seque: UIStoryboardSegue) { }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
