@@ -8,6 +8,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
     var selectBookData:[String : String] = [:]
+
     /* 購入日入力 */
     @IBAction func bookPurchaseDateTouchDown() {
         //Pickerの表示
@@ -34,6 +35,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         datePickerToolBar.isUserInteractionEnabled = true
         bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
     }
+
     //Pickerで選択した値をTextFieldに入れる
     func onDidChangeDate(sender:UIDatePicker) {
         let dateFormatter       = DateFormatter()
@@ -41,6 +43,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         dateFormatter.dateFormat = "yyyy/MM/dd"
         bookPurchaseDateTextField.text = dateFormatter.string(from: sender.date)
     }
+
     //完了ボタンタップ
     func datePickerDoneClick() {
         bookPurchaseDateTextField.resignFirstResponder()
@@ -57,6 +60,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
             self.present(cameraPicker, animated: true, completion: nil)
         }
     }
+
     //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -64,11 +68,13 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         picker.dismiss(animated: true, completion: nil)
     }
+
     /* 編集画面 */
     //戻るボタン押した時の処理
     func goBack() {
         self.navigationController?.popViewController(animated: true)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         /* 書籍編集画面 */
@@ -86,6 +92,7 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPriceTextField.text = selectBookData["bookPrice"]
         bookPurchaseDateTextField.text = selectBookData["bookPurchaseDate"]
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

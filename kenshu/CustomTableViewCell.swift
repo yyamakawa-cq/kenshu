@@ -9,9 +9,11 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var bookPriceLabel: UILabel!
     //更新日を表示するLabel
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
