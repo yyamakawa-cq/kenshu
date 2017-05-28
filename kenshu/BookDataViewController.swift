@@ -1,13 +1,13 @@
 import UIKit
 
-class BookDataViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class BookDataViewController: UIViewController {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var addPicButton: UIButton!
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookPriceTextField: UITextField!
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
-    var selectBookData:[String : String] = [:]
+    var selectBook: Book = Book()
 
     /* 購入日入力 */
     @IBAction func bookPurchaseDateTouchDown() {
@@ -49,26 +49,6 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         bookPurchaseDateTextField.resignFirstResponder()
     }
 
-    /* 画像添付 */
-    //画像添付ボタンタップでアルバムを表示
-    @IBAction func showAlbum(_ sender: AnyObject) {
-        let sourceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-        }
-    }
-
-    //選んだ画像を表示する
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            bookImage.image = pickedImage
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-
     /* 編集画面 */
     //戻るボタン押した時の処理
     func goBack() {
@@ -87,13 +67,35 @@ class BookDataViewController: UIViewController, UIImagePickerControllerDelegate,
         )
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
-        bookImage.image = UIImage(named:"\(selectBookData["bookImage"] ?? "Sample.jpg")")
-        bookTitleTextField.text = selectBookData["bookTitle"]
-        bookPriceTextField.text = selectBookData["bookPrice"]
-        bookPurchaseDateTextField.text = selectBookData["bookPurchaseDate"]
+        bookImage.image = UIImage(named:(selectBook.imageUrl))
+        bookTitleTextField.text = selectBook.title
+        bookPriceTextField.text = selectBook.price.description
+        bookPurchaseDateTextField.text = selectBook.purchasedDate
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension BookDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    /* 画像添付 */
+    //画像添付ボタンタップでアルバムを表示
+    @IBAction func showAlbum(_ sender: AnyObject) {
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+    }
+    //選んだ画像を表示する
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            bookImage.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
 }
