@@ -20,7 +20,6 @@ class BookListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(books[0].title)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +49,6 @@ extension BookListViewController: UITableViewDelegate {
 extension BookListViewController: UITableViewDataSource {
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
          let selectBook = Book(
             imageUrl: books[indexPath.row].imageUrl,
             title: books[indexPath.row].title,

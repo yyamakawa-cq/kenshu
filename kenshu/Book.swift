@@ -7,7 +7,7 @@ class Book {
     var purchasedDate: String
 
     init() {
-        imageUrl = "sample.jpg"
+        imageUrl = ""
         title = ""
         price = 0
         purchasedDate = ""

@@ -67,10 +67,14 @@ class BookDataViewController: UIViewController {
         )
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
-        bookImage.image = UIImage(named:(selectBook.imageUrl))
-        bookTitleTextField.text = selectBook.title
-        bookPriceTextField.text = selectBook.price.description
-        bookPurchaseDateTextField.text = selectBook.purchasedDate
+        if self.title == "Edit"{
+            bookImage.image = UIImage(named:(selectBook.imageUrl))
+            bookTitleTextField.text = selectBook.title
+            bookPriceTextField.text = selectBook.price.description
+            bookPurchaseDateTextField.text = selectBook.purchasedDate
+        }else{
+            bookImage.image = UIImage(named: "sample.jpg")
+        }
 
     }
 
