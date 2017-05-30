@@ -1,7 +1,7 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
-    @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var addPicButton: UIButton!
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookPriceTextField: UITextField!
@@ -10,14 +10,14 @@ class BookDetailViewController: UIViewController {
     var selectBook: BookParams = BookParams()
 
     /* 購入日入力 */
-    @IBAction func bookPurchaseDateTap() {
+    @IBAction func didBookPurchaseDateTapped() {
         //Pickerの表示
         var bookPurchaseDatePicker: UIDatePicker!
         var datePickerToolBar: UIToolbar!
         bookPurchaseDatePicker = UIDatePicker()
         bookPurchaseDatePicker.addTarget(
             self,
-            action: #selector(BookDetailViewController.onDidChangeDate(sender:)),
+            action: #selector(BookDetailViewController.didDateChanged(sender:)),
             for: .valueChanged
         )
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
@@ -37,7 +37,7 @@ class BookDetailViewController: UIViewController {
     }
 
     //Pickerで選択した値をTextFieldに入れる
-    func onDidChangeDate(sender:UIDatePicker) {
+    func didDateChanged(sender:UIDatePicker) {
         let dateFormatter       = DateFormatter()
         dateFormatter.locale    = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd"
@@ -68,12 +68,12 @@ class BookDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
         if self.title == "Edit"{
-            bookImage.image = UIImage(named:(selectBook.imageUrl))
+            bookImageView.image = UIImage(named:(selectBook.imageUrl))
             bookTitleTextField.text = selectBook.title
             bookPriceTextField.text = selectBook.price.description
             bookPurchaseDateTextField.text = selectBook.purchasedDate
         } else {
-            bookImage.image = UIImage(named: "sample.jpg")
+            bookImageView.image = UIImage(named: "sample.jpg")
         }
 
     }
@@ -98,7 +98,7 @@ extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigatio
     //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            bookImage.image = pickedImage
+            bookImageView.image = pickedImage
         }
         picker.dismiss(animated: true, completion: nil)
     }

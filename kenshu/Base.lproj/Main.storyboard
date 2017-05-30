@@ -453,7 +453,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="bookPurchaseDateTap" destination="j1h-8F-G4Z" eventType="touchDown" id="rI4-Sl-WPz"/>
+                                    <action selector="didBookPurchaseDateTapped" destination="j1h-8F-G4Z" eventType="touchDown" id="QB8-fm-dOT"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -484,7 +484,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addPicButton" destination="2Ew-u3-92q" id="5Ns-x7-jHq"/>
-                        <outlet property="bookImage" destination="ass-fm-9ki" id="bKV-e2-JND"/>
+                        <outlet property="bookImageView" destination="ass-fm-9ki" id="pC9-My-PUl"/>
                         <outlet property="bookPriceTextField" destination="b7h-Ld-S1F" id="63E-27-UKK"/>
                         <outlet property="bookPurchaseDateTextField" destination="i5m-b5-kgB" id="8ci-0O-KbJ"/>
                         <outlet property="bookTitleTextField" destination="djA-GI-YqA" id="biO-7k-qMc"/>
@@ -581,7 +581,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="bookPurchaseDateTap" destination="Dib-co-iIW" eventType="touchDown" id="bk5-Fm-13j"/>
+                                    <action selector="didBookPurchaseDateTapped" destination="Dib-co-iIW" eventType="touchDown" id="yHl-sR-6aE"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -612,7 +612,7 @@
                     </view>
                     <connections>
                         <outlet property="addPicButton" destination="Y5E-zK-fyh" id="ml0-ov-HuE"/>
-                        <outlet property="bookImage" destination="hbM-B7-zwe" id="OVw-u7-oIi"/>
+                        <outlet property="bookImageView" destination="hbM-B7-zwe" id="LYk-Nh-wQg"/>
                         <outlet property="bookPriceTextField" destination="5nr-1m-yJy" id="IWr-nz-jYU"/>
                         <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="lXp-yZ-vLx"/>
                         <outlet property="bookTitleTextField" destination="cLa-T9-39h" id="eYo-qV-hVZ"/>
