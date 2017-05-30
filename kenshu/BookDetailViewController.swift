@@ -55,6 +55,18 @@ class BookDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    /* 画像添付 */
+    //画像添付ボタンタップでアルバムを表示
+    @IBAction func showAlbum(_ sender: AnyObject) {
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         /* 書籍編集画面 */
@@ -85,16 +97,6 @@ class BookDetailViewController: UIViewController {
 
 extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     /* 画像添付 */
-    //画像添付ボタンタップでアルバムを表示
-    @IBAction func showAlbum(_ sender: AnyObject) {
-        let sourceType = UIImagePickerControllerSourceType.photoLibrary
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-        }
-    }
     //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
