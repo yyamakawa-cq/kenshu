@@ -73,7 +73,7 @@ class BookDetailViewController: UIViewController {
             bookPriceTextField.text = selectBook.price.description
             bookPurchaseDateTextField.text = selectBook.purchasedDate
         } else {
-            bookImageView.image = UIImage(named: "sample.jpg")
+            bookImageView.image = UIImage(named: "Sample")
         }
 
     }
