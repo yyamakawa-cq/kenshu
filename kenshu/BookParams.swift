@@ -1,6 +1,6 @@
 import UIKit
 
-class Book {
+class BookParams {
     var imageUrl: String
     var title: String
     var price: Int

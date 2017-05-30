@@ -7,10 +7,10 @@ class BookDataViewController: UIViewController {
     @IBOutlet weak var bookPriceTextField: UITextField!
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
-    var selectBook: Book = Book()
+    var selectBook: BookParams = BookParams()
 
     /* 購入日入力 */
-    @IBAction func bookPurchaseDateTouchDown() {
+    @IBAction func bookPurchaseDateTap() {
         //Pickerの表示
         var bookPurchaseDatePicker: UIDatePicker!
         var datePickerToolBar: UIToolbar!
@@ -27,7 +27,7 @@ class BookDataViewController: UIViewController {
             title: "Done",
             style: .plain,
             target: self,
-            action: #selector(BookDataViewController.datePickerDoneClick)
+            action: #selector(BookDataViewController.datePickerDoneTap)
         )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
@@ -45,7 +45,7 @@ class BookDataViewController: UIViewController {
     }
 
     //完了ボタンタップ
-    func datePickerDoneClick() {
+    func datePickerDoneTap() {
         bookPurchaseDateTextField.resignFirstResponder()
     }
 
@@ -72,7 +72,7 @@ class BookDataViewController: UIViewController {
             bookTitleTextField.text = selectBook.title
             bookPriceTextField.text = selectBook.price.description
             bookPurchaseDateTextField.text = selectBook.purchasedDate
-        }else{
+        } else {
             bookImage.image = UIImage(named: "sample.jpg")
         }
 
