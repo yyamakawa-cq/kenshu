@@ -36,9 +36,9 @@ extension BookListViewController: UITableViewDelegate {
     //表示：リストのセルに値を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell {
         //セルを取得
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? BookListTableViewCell
         //セルに値を設定
-        cell?.bookImage.image = UIImage(named: books[indexPath.row].imageUrl)
+        cell?.bookImageView.image = UIImage(named: books[indexPath.row].imageUrl)
         cell?.bookTitleLabel.text = books[indexPath.row].title
         cell?.bookPriceLabel.text = books[indexPath.row].price.description
         cell?.bookPurchaseDateLabel.text = books[indexPath.row].purchasedDate

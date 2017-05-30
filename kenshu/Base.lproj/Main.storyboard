@@ -283,7 +283,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="94" id="FJ2-Rl-Ahw" customClass="CustomTableViewCell" customModule="kenshu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="94" id="FJ2-Rl-Ahw" customClass="BookListTableViewCell" customModule="kenshu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FJ2-Rl-Ahw" id="ZL3-bO-S89">
@@ -335,7 +335,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="bookImage" destination="Azg-xT-77X" id="wvi-ug-J2i"/>
+                                            <outlet property="bookImageView" destination="Azg-xT-77X" id="2OM-KT-Yoe"/>
                                             <outlet property="bookPriceLabel" destination="Nnm-1g-8hW" id="233-sT-god"/>
                                             <outlet property="bookPurchaseDateLabel" destination="GSX-qQ-f2Z" id="dDF-O4-K3x"/>
                                             <outlet property="bookTitleLabel" destination="3Sm-6c-fNf" id="ua7-uz-2w4"/>
