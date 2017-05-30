@@ -4,17 +4,17 @@ class BookListViewController: UIViewController {
     @IBAction func goBack(seque: UIStoryboardSegue) {}
 
     let books = [
-    BookParams(imageUrl: "NEKOIMG_1.jpg", title: "ネコ1", price: 1000, purchasedDate: "2017/01/01"),
-    BookParams(imageUrl: "NEKOIMG_2.jpg", title: "ネコ2", price: 2000, purchasedDate: "2017/02/01"),
-    BookParams(imageUrl: "NEKOIMG_3.jpg", title: "ネコ3", price: 3000, purchasedDate: "2017/03/01"),
-    BookParams(imageUrl: "NEKOIMG_4.jpg", title: "ネコ4", price: 4000, purchasedDate: "2017/04/01"),
-    BookParams(imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchasedDate: "2017/05/01")
+    Book(imageUrl: "NEKOIMG_1.jpg", title: "ネコ1", price: 1000, purchasedDate: "2017/01/01"),
+    Book(imageUrl: "NEKOIMG_2.jpg", title: "ネコ2", price: 2000, purchasedDate: "2017/02/01"),
+    Book(imageUrl: "NEKOIMG_3.jpg", title: "ネコ3", price: 3000, purchasedDate: "2017/03/01"),
+    Book(imageUrl: "NEKOIMG_4.jpg", title: "ネコ4", price: 4000, purchasedDate: "2017/04/01"),
+    Book(imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchasedDate: "2017/05/01")
     ]
 
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         if (segue.identifier == "list") {
             let editViewController = segue.destination as? BookDetailViewController
-            editViewController?.selectBook = (sender as? BookParams)!
+            editViewController?.selectBook = (sender as? Book)!
         }
     }
 
@@ -49,7 +49,7 @@ extension BookListViewController: UITableViewDelegate {
 extension BookListViewController: UITableViewDataSource {
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let selectBook = BookParams(
+         let selectBook = Book(
             imageUrl: books[indexPath.row].imageUrl,
             title: books[indexPath.row].title,
             price: books[indexPath.row].price,

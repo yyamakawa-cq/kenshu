@@ -7,7 +7,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookPriceTextField: UITextField!
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
-    var selectBook: BookParams = BookParams()
+    var selectBook: Book = Book()
 
     /* 購入日入力 */
     @IBAction func didBookPurchaseDateTapped() {
