@@ -379,7 +379,7 @@
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
             <objects>
-                <viewController title="Edit" id="j1h-8F-G4Z" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit" id="j1h-8F-G4Z" customClass="BookDetailViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E5D-ij-2Md"/>
                         <viewControllerLayoutGuide type="bottom" id="1fW-QS-q6Z"/>
@@ -497,7 +497,7 @@
         <!--Add-->
         <scene sceneID="kwt-Pi-eYa">
             <objects>
-                <viewController title="Add" id="Dib-co-iIW" customClass="BookDataViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add" id="Dib-co-iIW" customClass="BookDetailViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mj9-qI-vOG"/>
                         <viewControllerLayoutGuide type="bottom" id="NSq-QE-UWX"/>

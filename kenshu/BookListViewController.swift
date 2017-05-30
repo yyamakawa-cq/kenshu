@@ -13,7 +13,7 @@ class BookListViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
         if (segue.identifier == "list") {
-            let editViewController = segue.destination as? BookDataViewController
+            let editViewController = segue.destination as? BookDetailViewController
             editViewController?.selectBook = (sender as? BookParams)!
         }
     }

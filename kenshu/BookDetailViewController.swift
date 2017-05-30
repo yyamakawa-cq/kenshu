@@ -1,6 +1,6 @@
 import UIKit
 
-class BookDataViewController: UIViewController {
+class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var addPicButton: UIButton!
     @IBOutlet weak var bookTitleTextField: UITextField!
@@ -17,7 +17,7 @@ class BookDataViewController: UIViewController {
         bookPurchaseDatePicker = UIDatePicker()
         bookPurchaseDatePicker.addTarget(
             self,
-            action: #selector(BookDataViewController.onDidChangeDate(sender:)),
+            action: #selector(BookDetailViewController.onDidChangeDate(sender:)),
             for: .valueChanged
         )
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
@@ -27,7 +27,7 @@ class BookDataViewController: UIViewController {
             title: "Done",
             style: .plain,
             target: self,
-            action: #selector(BookDataViewController.datePickerDoneTap)
+            action: #selector(BookDetailViewController.datePickerDoneTap)
         )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
@@ -63,7 +63,7 @@ class BookDataViewController: UIViewController {
             title: "戻る",
             style: UIBarButtonItemStyle.plain,
             target: self,
-            action: #selector(BookDataViewController.goBack)
+            action: #selector(BookDetailViewController.goBack)
         )
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
@@ -83,7 +83,7 @@ class BookDataViewController: UIViewController {
     }
 }
 
-extension BookDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     /* 画像添付 */
     //画像添付ボタンタップでアルバムを表示
     @IBAction func showAlbum(_ sender: AnyObject) {
