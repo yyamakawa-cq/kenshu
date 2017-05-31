@@ -1,7 +1,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    @IBAction func goBack(seque: UIStoryboardSegue) { }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

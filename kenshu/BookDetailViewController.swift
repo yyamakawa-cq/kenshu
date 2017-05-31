@@ -7,6 +7,11 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookPriceTextField: UITextField!
 
     var selectBook: Book!
+    var screen:ViewType!
+
+    enum ViewType {
+        case add, edit
+    }
 
     /* 購入日入力 */
     @IBAction func didBookPurchaseDateTapped() {
@@ -48,10 +53,14 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.resignFirstResponder()
     }
 
-    /* 編集画面 */
-    //戻るボタン押した時の処理
+    //戻るボタンタップ
     func goBack() {
         self.navigationController?.popViewController(animated: true)
+    }
+
+    //閉じるボタンタップ
+    @IBAction func didCloseButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     /* 画像添付 */
@@ -68,33 +77,24 @@ class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /* 書籍編集画面 */
-        //戻るボタン
-        let leftButton = UIBarButtonItem(
-            title: "戻る",
-            style: UIBarButtonItemStyle.plain,
-            target: self,
-            action: #selector(BookDetailViewController.goBack)
-        )
-        self.navigationItem.leftBarButtonItem = leftButton
-        //既存の値の表示
-       /* if self.title == "Edit"{
-            print (selectBook.title)
-            //bookImageView?.image = UIImage(named:selectBook.imageUrl)
-            bookTitleTextField?.text = selectBook.title as String
-            //bookPriceTextField?.text = selectBook.price.description
-            //bookPurchaseDateTextField?.text = selectBook.purchasedDate
-        } else {
-            bookImageView.image = UIImage(named: "Sample")
-        }*/
-        if self.title == "Edit"{
-            bookImageView?.image = UIImage(named:selectBook.imageUrl)
-            bookTitleTextField.text = selectBook.title
-            bookPriceTextField?.text = selectBook.price.description
-            bookPurchaseDateTextField?.text = selectBook.purchasedDate
-        } else {
-            bookImageView.image = UIImage(named: "Sample")
-        }
+        switch screen! {
+            case .edit:
+                //戻るボタンの設定
+                let leftButton = UIBarButtonItem(
+                    title: "戻る",
+                    style: UIBarButtonItemStyle.plain,
+                    target: self,
+                    action: #selector(BookDetailViewController.goBack)
+                )
+                self.navigationItem.leftBarButtonItem = leftButton
+                //既存の値の表示
+                bookImageView?.image = UIImage(named:selectBook.imageUrl)
+                bookTitleTextField.text = selectBook.title
+                bookPriceTextField?.text = selectBook.price.description
+                bookPurchaseDateTextField?.text = selectBook.purchasedDate
+            case .add:
+                bookImageView?.image = UIImage(named:"Sample")
+            }
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,7 +1,6 @@
 import UIKit
 
 class BookListViewController: UIViewController {
-    @IBAction func goBack(seque: UIStoryboardSegue) {}
 
     let books = [
     Book(imageUrl: "NEKOIMG_1.jpg", title: "ネコ1", price: 1000, purchasedDate: "2017/01/01"),
@@ -10,6 +9,13 @@ class BookListViewController: UIViewController {
     Book(imageUrl: "NEKOIMG_4.jpg", title: "ネコ4", price: 4000, purchasedDate: "2017/04/01"),
     Book(imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchasedDate: "2017/05/01")
     ]
+
+    @IBAction func didAddButtonTapped(_ sender: UIBarButtonItem) {
+        let storyboard:UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Add") as! BookDetailViewController
+        nextView.screen = .add
+        present(nextView, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +56,7 @@ extension BookListViewController: UITableViewDataSource {
         let storyboard:UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Edit") as! BookDetailViewController
         nextView.selectBook = selectBook
+        nextView.screen = .edit
         self.navigationController?.pushViewController(nextView, animated: true)
     }
 }
