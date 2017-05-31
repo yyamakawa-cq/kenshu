@@ -2,12 +2,11 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookImageView: UIImageView!
-    @IBOutlet weak var addPicButton: UIButton!
+    @IBOutlet weak var bookPurchaseDateTextField: UITextField!
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookPriceTextField: UITextField!
-    @IBOutlet weak var bookPurchaseDateTextField: UITextField!
 
-    var selectBook: Book = Book()
+    var selectBook: Book!
 
     /* 購入日入力 */
     @IBAction func didBookPurchaseDateTapped() {
@@ -79,15 +78,23 @@ class BookDetailViewController: UIViewController {
         )
         self.navigationItem.leftBarButtonItem = leftButton
         //既存の値の表示
+       /* if self.title == "Edit"{
+            print (selectBook.title)
+            //bookImageView?.image = UIImage(named:selectBook.imageUrl)
+            bookTitleTextField?.text = selectBook.title as String
+            //bookPriceTextField?.text = selectBook.price.description
+            //bookPurchaseDateTextField?.text = selectBook.purchasedDate
+        } else {
+            bookImageView.image = UIImage(named: "Sample")
+        }*/
         if self.title == "Edit"{
-            bookImageView.image = UIImage(named:(selectBook.imageUrl))
+            bookImageView?.image = UIImage(named:selectBook.imageUrl)
             bookTitleTextField.text = selectBook.title
-            bookPriceTextField.text = selectBook.price.description
-            bookPurchaseDateTextField.text = selectBook.purchasedDate
+            bookPriceTextField?.text = selectBook.price.description
+            bookPurchaseDateTextField?.text = selectBook.purchasedDate
         } else {
             bookImageView.image = UIImage(named: "Sample")
         }
-
     }
 
     override func didReceiveMemoryWarning() {

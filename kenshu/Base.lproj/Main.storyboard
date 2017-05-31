@@ -368,9 +368,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="j1h-8F-G4Z" kind="show" identifier="list" id="H05-x0-jC4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ed-83-Zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -379,7 +376,7 @@
         <!--Edit-->
         <scene sceneID="mZK-VV-DVx">
             <objects>
-                <viewController title="Edit" id="j1h-8F-G4Z" customClass="BookDetailViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Edit" title="Edit" id="j1h-8F-G4Z" customClass="BookDetailViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E5D-ij-2Md"/>
                         <viewControllerLayoutGuide type="bottom" id="1fW-QS-q6Z"/>
@@ -483,11 +480,10 @@
                         <barButtonItem key="rightBarButtonItem" title="保存" id="xUS-Rt-X1i"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPicButton" destination="2Ew-u3-92q" id="5Ns-x7-jHq"/>
                         <outlet property="bookImageView" destination="ass-fm-9ki" id="pC9-My-PUl"/>
-                        <outlet property="bookPriceTextField" destination="b7h-Ld-S1F" id="63E-27-UKK"/>
-                        <outlet property="bookPurchaseDateTextField" destination="i5m-b5-kgB" id="8ci-0O-KbJ"/>
-                        <outlet property="bookTitleTextField" destination="djA-GI-YqA" id="biO-7k-qMc"/>
+                        <outlet property="bookPriceTextField" destination="b7h-Ld-S1F" id="0KA-Mr-WH4"/>
+                        <outlet property="bookPurchaseDateTextField" destination="i5m-b5-kgB" id="IMb-zM-8RZ"/>
+                        <outlet property="bookTitleTextField" destination="djA-GI-YqA" id="hKZ-nb-QrE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBH-Oq-lv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,11 +607,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addPicButton" destination="Y5E-zK-fyh" id="ml0-ov-HuE"/>
                         <outlet property="bookImageView" destination="hbM-B7-zwe" id="LYk-Nh-wQg"/>
-                        <outlet property="bookPriceTextField" destination="5nr-1m-yJy" id="IWr-nz-jYU"/>
-                        <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="lXp-yZ-vLx"/>
-                        <outlet property="bookTitleTextField" destination="cLa-T9-39h" id="eYo-qV-hVZ"/>
+                        <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="Rrh-2S-pya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>

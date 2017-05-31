@@ -11,13 +11,6 @@ class BookListViewController: UIViewController {
     Book(imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchasedDate: "2017/05/01")
     ]
 
-    override func prepare(for segue: UIStoryboardSegue,sender: Any?) {
-        if (segue.identifier == "list") {
-            let editViewController = segue.destination as? BookDetailViewController
-            editViewController?.selectBook = (sender as? Book)!
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,7 +23,7 @@ class BookListViewController: UIViewController {
 extension BookListViewController: UITableViewDelegate {
     //表示：リストのセルの個数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return books.count
     }
 
     //表示：リストのセルに値を設定する
@@ -40,7 +33,7 @@ extension BookListViewController: UITableViewDelegate {
         //セルに値を設定
         cell?.bookImageView.image = UIImage(named: books[indexPath.row].imageUrl)
         cell?.bookTitleLabel.text = books[indexPath.row].title
-        cell?.bookPriceLabel.text = books[indexPath.row].price.description
+        cell?.bookPriceLabel.text = (books[indexPath.row].price.description)+"円"
         cell?.bookPurchaseDateLabel.text = books[indexPath.row].purchasedDate
         return cell!
     }
@@ -54,6 +47,9 @@ extension BookListViewController: UITableViewDataSource {
             title: books[indexPath.row].title,
             price: books[indexPath.row].price,
             purchasedDate: books[indexPath.row].purchasedDate)
-        performSegue(withIdentifier: "list", sender:selectBook)
+        let storyboard:UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Edit") as! BookDetailViewController
+        nextView.selectBook = selectBook
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
 }
