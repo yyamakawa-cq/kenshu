@@ -179,7 +179,7 @@
                                     <navigationItem title="アカウント設定" id="djI-Zz-MsC">
                                         <barButtonItem key="leftBarButtonItem" title="閉じる" id="OMr-Al-Zfc">
                                             <connections>
-                                                <action selector="didCloseButtonTapped:" destination="LsQ-7X-0rp" id="UmT-yJ-5Id"/>
+                                                <action selector="didCloseButtonTap:" destination="LsQ-7X-0rp" id="Wl8-bH-R6k"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="保存" id="YLl-gH-TSd"/>
@@ -363,7 +363,7 @@
                     <navigationItem key="navigationItem" title="書籍一覧" id="0MP-xF-jrC">
                         <barButtonItem key="rightBarButtonItem" title="追加" id="ZT1-Sd-yd1">
                             <connections>
-                                <action selector="didAddButtonTapped:" destination="Nbp-6I-Qo9" id="SMy-Wo-7Qe"/>
+                                <action selector="didAddButtonTap:" destination="Nbp-6I-Qo9" id="gdf-Lv-4aL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -385,27 +385,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ass-fm-9ki">
-                                <rect key="frame" x="37" y="91" width="160" height="100"/>
+                                <rect key="frame" x="37" y="47" width="160" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="C9p-2s-kLA"/>
                                     <constraint firstAttribute="width" constant="160" id="Qin-DG-4mn"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ew-u3-92q">
-                                <rect key="frame" x="275" y="126" width="62" height="30"/>
+                                <rect key="frame" x="275" y="82" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="showAlbum:" destination="j1h-8F-G4Z" eventType="touchUpInside" id="vZZ-LV-2gf"/>
+                                    <action selector="didPicAttachButtonTap:" destination="j1h-8F-G4Z" eventType="touchDown" id="Y3a-xl-VVf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J6-G2-lTp">
-                                <rect key="frame" x="37" y="216" width="52" height="21"/>
+                                <rect key="frame" x="37" y="172" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djA-GI-YqA">
-                                <rect key="frame" x="37" y="245" width="300" height="44"/>
+                                <rect key="frame" x="37" y="201" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="WHX-jD-FKI"/>
                                     <constraint firstAttribute="width" constant="300" id="iID-yu-zOM"/>
@@ -415,13 +415,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-vB-ES8">
-                                <rect key="frame" x="37" y="297" width="35" height="21"/>
+                                <rect key="frame" x="37" y="253" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7h-Ld-S1F">
-                                <rect key="frame" x="37" y="326" width="300" height="44"/>
+                                <rect key="frame" x="37" y="282" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vzK-kc-Mgg"/>
                                     <constraint firstAttribute="width" constant="300" id="zyr-Cv-c6M"/>
@@ -431,7 +431,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozw-mr-pqG">
-                                <rect key="frame" x="37" y="378" width="52" height="30"/>
+                                <rect key="frame" x="37" y="334" width="52" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tgc-os-xUN"/>
                                 </constraints>
@@ -440,7 +440,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5m-b5-kgB">
-                                <rect key="frame" x="37" y="416" width="300" height="44"/>
+                                <rect key="frame" x="37" y="372" width="300" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7DL-99-KtE"/>
                                     <constraint firstAttribute="width" constant="300" id="RPq-jH-S2X"/>
@@ -507,7 +507,7 @@
                                     <navigationItem title="書籍追加" id="TRa-kn-dII">
                                         <barButtonItem key="leftBarButtonItem" title="閉じる" id="WLZ-7S-2e4">
                                             <connections>
-                                                <action selector="didCloseButtonTapped:" destination="Dib-co-iIW" id="ONh-pj-k8Y"/>
+                                                <action selector="didCloseButtonTap:" destination="Dib-co-iIW" id="mTd-ht-ywQ"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="保存" id="AlS-4X-lJb"/>
@@ -557,7 +557,7 @@
                                 <rect key="frame" x="275" y="123" width="62" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="showAlbum:" destination="Dib-co-iIW" eventType="touchUpInside" id="J1H-1r-B0P"/>
+                                    <action selector="didPicAttachButtonTap:" destination="Dib-co-iIW" eventType="touchDown" id="c5F-XI-On9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-h0-d5v">

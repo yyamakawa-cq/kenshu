@@ -31,7 +31,7 @@ class BookDetailViewController: UIViewController {
             title: "Done",
             style: .plain,
             target: self,
-            action: #selector(BookDetailViewController.datePickerDoneTap)
+            action: #selector(BookDetailViewController.didDatePickerDoneTap)
         )
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         datePickerToolBar.setItems([spaceButton, doneButton], animated: false)
@@ -46,23 +46,23 @@ class BookDetailViewController: UIViewController {
     }
 
     //完了ボタンタップ
-    func datePickerDoneTap() {
+    func didDatePickerDoneTap() {
         bookPurchaseDateTextField.resignFirstResponder()
     }
 
     //戻るボタンタップ
-    func goBack() {
+    func didBackButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
 
     //閉じるボタンタップ
-    @IBAction func didCloseButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
 
     /* 画像添付 */
     //画像添付ボタンタップでアルバムを表示
-    @IBAction func showAlbum(_ sender: AnyObject) {
+    @IBAction func didPicAttachButtonTap(_ sender: AnyObject) {
         let sourceType = UIImagePickerControllerSourceType.photoLibrary
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let cameraPicker = UIImagePickerController()
@@ -81,7 +81,7 @@ class BookDetailViewController: UIViewController {
                     title: "戻る",
                     style: UIBarButtonItemStyle.plain,
                     target: self,
-                    action: #selector(BookDetailViewController.goBack)
+                    action: #selector(BookDetailViewController.didBackButtonTapped)
                 )
                 self.navigationItem.leftBarButtonItem = leftButton
                 //既存の値の表示

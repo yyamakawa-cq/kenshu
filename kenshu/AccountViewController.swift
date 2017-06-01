@@ -2,7 +2,7 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
-    @IBAction func didCloseButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
 

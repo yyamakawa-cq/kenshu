@@ -10,7 +10,7 @@ class BookListViewController: UIViewController {
     Book(imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchasedDate: "2017/05/01")
     ]
 
-    @IBAction func didAddButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
         let storyboard:UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "Add") as! BookDetailViewController
         nextView.screen = .add
