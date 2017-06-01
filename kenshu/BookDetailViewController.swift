@@ -26,7 +26,7 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
         let doneButton = UIBarButtonItem(
-            title: "Done",
+            title: NSLocalizedString("Done", comment:""),
             style: .plain,
             target: self,
             action: #selector(BookDetailViewController.didDatePickerDoneTap)
@@ -76,7 +76,7 @@ class BookDetailViewController: UIViewController {
             case .edit:
                 //戻るボタンの設定
                 let leftButton = UIBarButtonItem(
-                    title: "戻る",
+                    title: NSLocalizedString("Back", comment:""),
                     style: .plain,
                     target: self,
                     action: #selector(BookDetailViewController.didBackButtonTapped)
