@@ -8,6 +8,8 @@ class BookDetailViewController: UIViewController {
 
     var selectBook: Book!
     var screen:ViewType!
+    var bookPurchaseDatePicker: UIDatePicker! = UIDatePicker()
+    var datePickerToolBar: UIToolbar! = UIToolbar()
 
     enum ViewType {
         case add, edit
@@ -16,9 +18,6 @@ class BookDetailViewController: UIViewController {
     /* 購入日入力 */
     @IBAction func didBookPurchaseDateTapped() {
         //Pickerの表示
-        var bookPurchaseDatePicker: UIDatePicker!
-        var datePickerToolBar: UIToolbar!
-        bookPurchaseDatePicker = UIDatePicker()
         bookPurchaseDatePicker.addTarget(
             self,
             action: #selector(BookDetailViewController.didDateChanged(sender:)),
@@ -26,7 +25,6 @@ class BookDetailViewController: UIViewController {
         )
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
-        datePickerToolBar = UIToolbar()
         let doneButton = UIBarButtonItem(
             title: "Done",
             style: .plain,
