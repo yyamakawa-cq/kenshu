@@ -41,11 +41,8 @@ class BookDetailViewController: UIViewController {
     }
 
     //Pickerで選択した値をTextFieldに入れる
-    func didDateChanged(sender:UIDatePicker) {
-        let dateFormatter       = DateFormatter()
-        dateFormatter.locale    = Locale(identifier: "ja_JP")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        bookPurchaseDateTextField.text = dateFormatter.string(from: sender.date)
+    func didDateChanged(sender: UIDatePicker) {
+        bookPurchaseDateTextField.text = DateFormat.dateToString(date: sender.date)
     }
 
     //完了ボタンタップ
