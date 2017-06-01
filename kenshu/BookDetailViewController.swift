@@ -79,7 +79,7 @@ class BookDetailViewController: UIViewController {
                 //戻るボタンの設定
                 let leftButton = UIBarButtonItem(
                     title: "戻る",
-                    style: UIBarButtonItemStyle.plain,
+                    style: .plain,
                     target: self,
                     action: #selector(BookDetailViewController.didBackButtonTapped)
                 )
