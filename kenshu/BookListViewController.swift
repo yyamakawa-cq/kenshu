@@ -12,7 +12,7 @@ class BookListViewController: UIViewController {
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
         let storyboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "Add") as! BookDetailViewController
+        let nextView = storyboard.instantiateViewController(withIdentifier: "BookDetailVCAdd") as! BookDetailViewController
         nextView.screen = .add
         present(nextView, animated: true, completion: nil)
     }
@@ -54,7 +54,7 @@ extension BookListViewController: UITableViewDataSource {
             price: books[indexPath.row].price,
             purchasedDate: books[indexPath.row].purchasedDate)
         let storyboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "Edit") as! BookDetailViewController
+        let nextView = storyboard.instantiateViewController(withIdentifier: "BookDetailVCEdit") as! BookDetailViewController
         nextView.selectBook = selectBook
         nextView.screen = .edit
         self.navigationController?.pushViewController(nextView, animated: true)
