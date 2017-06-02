@@ -1,0 +1,123 @@
+
+/* Class = "UINavigationItem"; title = "書籍一覧"; ObjectID = "0MP-xF-jrC"; */
+"0MP-xF-jrC.title" = "書籍一覧";
+
+/* Class = "UIButton"; normalTitle = "画像添付"; ObjectID = "2Ew-u3-92q"; */
+"2Ew-u3-92q.normalTitle" = "画像添付";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3Sm-6c-fNf"; */
+"3Sm-6c-fNf.text" = "Label";
+
+/* Class = "UILabel"; text = "書籍名"; ObjectID = "4J6-G2-lTp"; */
+"4J6-G2-lTp.text" = "書籍名";
+
+/* Class = "UIButton"; normalTitle = "もっと読み込む"; ObjectID = "6Df-Aa-iAb"; */
+"6Df-Aa-iAb.normalTitle" = "もっと読み込む";
+
+/* Class = "UILabel"; text = "購入日"; ObjectID = "7Yv-h0-d5v"; */
+"7Yv-h0-d5v.text" = "購入日";
+
+/* Class = "UINavigationItem"; title = "ログイン"; ObjectID = "9bH-Q2-bOz"; */
+"9bH-Q2-bOz.title" = "ログイン";
+
+/* Class = "UIBarButtonItem"; title = "保存"; ObjectID = "AlS-4X-lJb"; */
+"AlS-4X-lJb.title" = "保存";
+
+/* Class = "UIViewController"; title = "Setting"; ObjectID = "BLW-Ou-rvD"; */
+"BLW-Ou-rvD.title" = "Setting";
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Login";
+
+/* Class = "UIViewController"; title = "Add"; ObjectID = "Dib-co-iIW"; */
+"Dib-co-iIW.title" = "Add";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GSX-qQ-f2Z"; */
+"GSX-qQ-f2Z.text" = "Label";
+
+/* Class = "UILabel"; text = "金額"; ObjectID = "I4y-Vp-3wm"; */
+"I4y-Vp-3wm.text" = "金額";
+
+/* Class = "UILabel"; text = "書籍名"; ObjectID = "LVH-PK-kpv"; */
+"LVH-PK-kpv.text" = "書籍名";
+
+/* Class = "UIViewController"; title = "Account"; ObjectID = "LsQ-7X-0rp"; */
+"LsQ-7X-0rp.title" = "Account";
+
+/* Class = "UILabel"; text = "金額"; ObjectID = "MeL-vB-ES8"; */
+"MeL-vB-ES8.text" = "金額";
+
+/* Class = "UIViewController"; title = "List"; ObjectID = "Nbp-6I-Qo9"; */
+"Nbp-6I-Qo9.title" = "List";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Nnm-1g-8hW"; */
+"Nnm-1g-8hW.text" = "Label";
+
+/* Class = "UINavigationController"; title = "Navigation"; ObjectID = "OFO-QC-0he"; */
+"OFO-QC-0he.title" = "Navigation";
+
+/* Class = "UIBarButtonItem"; title = "閉じる"; ObjectID = "OMr-Al-Zfc"; */
+"OMr-Al-Zfc.title" = "閉じる";
+
+/* Class = "UILabel"; text = "購入日"; ObjectID = "Ozw-mr-pqG"; */
+"Ozw-mr-pqG.text" = "購入日";
+
+/* Class = "UINavigationItem"; title = "書籍編集"; ObjectID = "Ptj-ZB-KNe"; */
+"Ptj-ZB-KNe.title" = "書籍編集";
+
+/* Class = "UINavigationItem"; title = "書籍追加"; ObjectID = "TRa-kn-dII"; */
+"TRa-kn-dII.title" = "書籍追加";
+
+/* Class = "UILabel"; text = "メールアドレス"; ObjectID = "VLl-XE-HVx"; */
+"VLl-XE-HVx.text" = "メールアドレス";
+
+/* Class = "UIBarButtonItem"; title = "閉じる"; ObjectID = "WLZ-7S-2e4"; */
+"WLZ-7S-2e4.title" = "閉じる";
+
+/* Class = "UILabel"; text = "パスワード"; ObjectID = "XDE-1H-70S"; */
+"XDE-1H-70S.text" = "パスワード";
+
+/* Class = "UITabBarItem"; title = "設定"; ObjectID = "XFH-4C-vMW"; */
+"XFH-4C-vMW.title" = "設定";
+
+/* Class = "UIButton"; normalTitle = "画像添付"; ObjectID = "Y5E-zK-fyh"; */
+"Y5E-zK-fyh.normalTitle" = "画像添付";
+
+/* Class = "UIBarButtonItem"; title = "保存"; ObjectID = "YLl-gH-TSd"; */
+"YLl-gH-TSd.title" = "保存";
+
+/* Class = "UILabel"; text = "パスワード"; ObjectID = "ZNH-Dp-8e3"; */
+"ZNH-Dp-8e3.text" = "パスワード";
+
+/* Class = "UIBarButtonItem"; title = "追加"; ObjectID = "ZT1-Sd-yd1"; */
+"ZT1-Sd-yd1.title" = "追加";
+
+/* Class = "UIButton"; normalTitle = "ログイン"; ObjectID = "baO-0l-uao"; */
+"baO-0l-uao.normalTitle" = "ログイン";
+
+/* Class = "UITabBarItem"; title = "書籍一覧"; ObjectID = "cgB-sE-1WS"; */
+"cgB-sE-1WS.title" = "書籍一覧";
+
+/* Class = "UINavigationItem"; title = "アカウント設定"; ObjectID = "djI-Zz-MsC"; */
+"djI-Zz-MsC.title" = "アカウント設定";
+
+/* Class = "UIButton"; normalTitle = "アカウント設定"; ObjectID = "gzl-1M-WiQ"; */
+"gzl-1M-WiQ.normalTitle" = "アカウント設定";
+
+/* Class = "UIViewController"; title = "Edit"; ObjectID = "j1h-8F-G4Z"; */
+"j1h-8F-G4Z.title" = "Edit";
+
+/* Class = "UILabel"; text = "メールアドレス"; ObjectID = "jEe-1E-akE"; */
+"jEe-1E-akE.text" = "メールアドレス";
+
+/* Class = "UITabBarItem"; title = "書籍一覧"; ObjectID = "u5V-Xm-wVH"; */
+"u5V-Xm-wVH.title" = "書籍一覧";
+
+/* Class = "UILabel"; text = "パスワード確認"; ObjectID = "w7c-lD-B6j"; */
+"w7c-lD-B6j.text" = "パスワード確認";
+
+/* Class = "UINavigationItem"; title = "設定"; ObjectID = "wiW-Vj-lJk"; */
+"wiW-Vj-lJk.title" = "設定";
+
+/* Class = "UIBarButtonItem"; title = "保存"; ObjectID = "xUS-Rt-X1i"; */
+"xUS-Rt-X1i.title" = "保存";
