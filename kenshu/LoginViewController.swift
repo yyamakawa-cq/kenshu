@@ -14,8 +14,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let userDefault = UserDefaults.standard
         if userDefault.bool(forKey: "firstLaunch") {
-            let storyboard: UIStoryboard = self.storyboard!
-            let firstView = storyboard.instantiateViewController(withIdentifier: "Account")
+            let firstView = R.storyboard.main.account()!
             present(firstView, animated: true, completion: nil)
             userDefault.set(false, forKey: "firstLaunch")
         }

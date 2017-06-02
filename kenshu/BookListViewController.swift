@@ -11,8 +11,7 @@ class BookListViewController: UIViewController {
     ]
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
-        let storyboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "BookDetailVCAdd") as! BookDetailViewController
+        let nextView = R.storyboard.main.bookDetailVCAdd()!
         nextView.screen = .add
         present(nextView, animated: true, completion: nil)
     }
@@ -35,11 +34,11 @@ extension BookListViewController: UITableViewDelegate {
     //表示：リストのセルに値を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell {
         //セルを取得
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? BookListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myCell)
         //セルに値を設定
         cell?.bookImageView.image = UIImage(named: books[indexPath.row].imageUrl)
         cell?.bookTitleLabel.text = books[indexPath.row].title
-        cell?.bookPriceLabel.text = (books[indexPath.row].price.description)+"円"
+        cell?.bookPriceLabel.text = (books[indexPath.row].price.description)+R.string.localizable.currency()
         cell?.bookPurchaseDateLabel.text = books[indexPath.row].purchasedDate
         return cell!
     }
@@ -53,8 +52,7 @@ extension BookListViewController: UITableViewDataSource {
             title: books[indexPath.row].title,
             price: books[indexPath.row].price,
             purchasedDate: books[indexPath.row].purchasedDate)
-        let storyboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "BookDetailVCEdit") as! BookDetailViewController
+        let nextView = R.storyboard.main.bookDetailVCEdit()!
         nextView.selectBook = selectBook
         nextView.screen = .edit
         self.navigationController?.pushViewController(nextView, animated: true)

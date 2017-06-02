@@ -26,7 +26,7 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
         bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
         let doneButton = UIBarButtonItem(
-            title: NSLocalizedString("Done", comment:""),
+            title: R.string.localizable.done(),
             style: .plain,
             target: self,
             action: #selector(BookDetailViewController.didDatePickerDoneTap)
@@ -76,7 +76,7 @@ class BookDetailViewController: UIViewController {
             case .edit:
                 //戻るボタンの設定
                 let leftButton = UIBarButtonItem(
-                    title: NSLocalizedString("Back", comment:""),
+                    title: R.string.localizable.back(),
                     style: .plain,
                     target: self,
                     action: #selector(BookDetailViewController.didBackButtonTapped)
@@ -88,7 +88,7 @@ class BookDetailViewController: UIViewController {
                 bookPriceTextField?.text = selectBook.price.description
                 bookPurchaseDateTextField?.text = selectBook.purchasedDate
             case .add:
-                bookImageView?.image = UIImage(named:"Sample")
+                bookImageView?.image = R.image.sample()
             }
     }
 
