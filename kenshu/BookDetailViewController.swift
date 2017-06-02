@@ -7,9 +7,9 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookPriceTextField: UITextField!
 
     var selectBook: Book!
-    var screen:ViewType!
-    var bookPurchaseDatePicker: UIDatePicker! = UIDatePicker()
-    var datePickerToolBar: UIToolbar! = UIToolbar()
+    var screen: ViewType!
+    var bookPurchaseDatePicker = UIDatePicker()
+    var datePickerToolBar = UIToolbar()
 
     enum ViewType {
         case add, edit
@@ -24,7 +24,7 @@ class BookDetailViewController: UIViewController {
             for: .valueChanged
         )
         bookPurchaseDateTextField.inputView = bookPurchaseDatePicker
-        bookPurchaseDatePicker.datePickerMode = UIDatePickerMode.date
+        bookPurchaseDatePicker.datePickerMode = .date
         let doneButton = UIBarButtonItem(
             title: R.string.localizable.done(),
             style: .plain,
@@ -83,7 +83,7 @@ class BookDetailViewController: UIViewController {
                 )
                 self.navigationItem.leftBarButtonItem = leftButton
                 //既存の値の表示
-                bookImageView?.image = UIImage(named:selectBook.imageUrl)
+                bookImageView.image = UIImage(named:selectBook.imageUrl)
                 bookTitleTextField.text = selectBook.title
                 bookPriceTextField?.text = selectBook.price.description
                 bookPurchaseDateTextField?.text = selectBook.purchasedDate

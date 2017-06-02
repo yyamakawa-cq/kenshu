@@ -38,7 +38,7 @@ extension BookListViewController: UITableViewDelegate {
         //セルに値を設定
         cell?.bookImageView.image = UIImage(named: books[indexPath.row].imageUrl)
         cell?.bookTitleLabel.text = books[indexPath.row].title
-        cell?.bookPriceLabel.text = (books[indexPath.row].price.description)+R.string.localizable.currency()
+        cell?.bookPriceLabel.text = R.string.localizable.currency(books[indexPath.row].price)
         cell?.bookPurchaseDateLabel.text = books[indexPath.row].purchasedDate
         return cell!
     }
