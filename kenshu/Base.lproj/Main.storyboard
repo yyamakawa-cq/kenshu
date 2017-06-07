@@ -182,7 +182,11 @@
                                                 <action selector="didCloseButtonTap:" destination="LsQ-7X-0rp" id="Wl8-bH-R6k"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="保存" id="YLl-gH-TSd"/>
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="YLl-gH-TSd">
+                                            <connections>
+                                                <action selector="editDone:" destination="LsQ-7X-0rp" id="1QU-OJ-V48"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -216,7 +220,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ng-E4-jUK">
                                 <rect key="frame" x="37" y="298" width="300" height="44"/>
@@ -226,7 +230,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-lD-B6j">
                                 <rect key="frame" x="37" y="269" width="122" height="21"/>
@@ -254,10 +258,15 @@
                             <constraint firstItem="Fbb-5y-Zuy" firstAttribute="top" secondItem="jEe-1E-akE" secondAttribute="bottom" constant="8" symbolic="YES" id="x4R-0t-feu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="comfirmPasswordTextField" destination="4ng-E4-jUK" id="ICD-6h-cTj"/>
+                        <outlet property="emailAdressTextField" destination="Fbb-5y-Zuy" id="CsV-Wh-b1T"/>
+                        <outlet property="passwordTextField" destination="90C-PY-e6n" id="6Ww-5D-6lV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13n-k4-G8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2732" y="-273"/>
+            <point key="canvasLocation" x="2708" y="-273"/>
         </scene>
         <!--List-->
         <scene sceneID="C75-Ar-Qky">
