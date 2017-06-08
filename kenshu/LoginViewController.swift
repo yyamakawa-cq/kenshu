@@ -8,12 +8,14 @@ class LoginViewController: UIViewController {
     @IBAction func didSignInButtonTap() {
         let email = emailAdressTextField.text!
         let password = passwordTextField.text!
+        let strEmail = R.string.localizable.email()
+        let strPassword = R.string.localizable.password()
 
         guard Validation.isEmptycheck(value: email) else {
-            return showAlert(error: "emptyEmail")
+            return showAlert(error: R.string.localizable.errorEmpty(strEmail))
         }
         guard Validation.isEmptycheck(value: password) else {
-            return showAlert(error: "emptyPassword")
+            return showAlert(error: R.string.localizable.errorEmpty(strPassword))
         }
         let loginRequest = LoginRequest(email: email, password:password)
         Session.send(loginRequest) { result in
@@ -30,7 +32,7 @@ class LoginViewController: UIViewController {
                 self.present(nextView, animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                self.showAlert(error: "loginError")
+                self.showAlert(error: R.string.localizable.errorApi())
             }
         }
     }
@@ -56,12 +58,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     func showAlert(error: String) {
         let alert = UIAlertController (
-            title: "Error",
+            title: R.string.localizable.error(),
             message: error,
             preferredStyle: .alert
         )
         let alertAction = UIAlertAction (
-            title: "OK",
+            title: R.string.localizable.ok(),
             style: .default,
             handler: nil
         )

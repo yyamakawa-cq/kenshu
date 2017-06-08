@@ -3,7 +3,7 @@ import APIKit
 import Himotoki
 
 struct User: Decodable {
-    var id: Int
+    var id: Int // swiftlint:disable:this identifier_name
     var requestToken: String
 
 // swiftlint:disable:next identifier_name

@@ -1,6 +1,7 @@
 import Foundation
 
 class Validation {
+
     static func isEmptycheck(value: String) -> Bool {
         return value != ""
     }

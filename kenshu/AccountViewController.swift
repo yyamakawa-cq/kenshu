@@ -18,24 +18,27 @@ class AccountViewController: UIViewController {
         let email = emailAdressTextField.text!
         let password = passwordTextField.text!
         let comfirmPwd = comfirmPasswordTextField.text!
+        let strEmail = R.string.localizable.email()
+        let strPassword = R.string.localizable.password()
+        let strComfirmPwd = R.string.localizable.comfirmPwd()
 
         guard Validation.isEmptycheck(value: email) else {
-            return showAlert(error: "emptyEmail")
+            return showAlert(error: R.string.localizable.errorEmpty(strEmail))
         }
         guard Validation.isEmptycheck(value: password) else {
-            return showAlert(error: "emptyPassword")
+            return showAlert(error: R.string.localizable.errorEmpty(strPassword))
         }
         guard Validation.isEmptycheck(value: comfirmPwd) else {
-            return showAlert(error: "emptyCompwd")
+            return showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd))
         }
         guard Validation.isEqualCheck(pwFirst: password, pwSecond: comfirmPwd) else {
-            return showAlert(error: "passNotEqual")
+            return showAlert(error: R.string.localizable.errorPasswod())
         }
         guard Validation.isCountCheck(value: email, count: 8) else {
-            return showAlert(error: "countEmail")
+            return showAlert(error: R.string.localizable.errorCount(strEmail))
         }
         guard Validation.isCountCheck(value: password, count: 3) else {
-            return showAlert(error: "countPassword")
+            return showAlert(error: R.string.localizable.errorCount(strPassword))
         }
 
         let userDefault = UserDefaults.standard
@@ -52,7 +55,7 @@ class AccountViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                self.showAlert(error:"ApiError")
+                self.showAlert(error: R.string.localizable.errorApi())
                 }
             }
         return
@@ -72,12 +75,12 @@ class AccountViewController: UIViewController {
 extension AccountViewController {
     func showAlert(error: String) {
         let alert = UIAlertController (
-            title: "Error",
+            title: R.string.localizable.error(),
             message: error,
             preferredStyle: .alert
         )
         let alertAction = UIAlertAction (
-            title: "OK",
+            title: R.string.localizable.ok(),
             style: .default,
             handler: nil
         )
