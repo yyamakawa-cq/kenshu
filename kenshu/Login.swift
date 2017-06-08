@@ -2,7 +2,7 @@ import Foundation
 import APIKit
 import Himotoki
 
-struct SignUpRequest: ApiRequest {
+struct LoginRequest: ApiRequest {
     let email:String
     let password:String
 
@@ -13,7 +13,7 @@ struct SignUpRequest: ApiRequest {
     }
 
     var path: String {
-        return "/signup"
+        return "/login"
     }
 
     var headerFields: [String: String] {

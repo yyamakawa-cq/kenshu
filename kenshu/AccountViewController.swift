@@ -15,50 +15,49 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func editDone(_ sender: Any) {
-        let email = (emailAdressTextField.text)!
-        let pwFirst = (passwordTextField.text)!
-        let pwSecond = (comfirmPasswordTextField.text)!
-        guard isEmptycheck(email: email,pwFirst: pwFirst,pwSecond: pwSecond) else {
-            return showAlert()
+        let email = emailAdressTextField.text!
+        let password = passwordTextField.text!
+        let comfirmPwd = comfirmPasswordTextField.text!
+
+        guard Validation.isEmptycheck(value: email) else {
+            return showAlert(error: "emptyEmail")
         }
-        guard isEqualCheck(pwFirst: pwFirst, pwSecond: pwSecond) else {
-            return showAlert()
+        guard Validation.isEmptycheck(value: password) else {
+            return showAlert(error: "emptyPassword")
         }
-        guard isCountCheck(email: email, pwFirst: pwFirst) else {
-            return showAlert()
+        guard Validation.isEmptycheck(value: comfirmPwd) else {
+            return showAlert(error: "emptyCompwd")
+        }
+        guard Validation.isEqualCheck(pwFirst: password, pwSecond: comfirmPwd) else {
+            return showAlert(error: "passNotEqual")
+        }
+        guard Validation.isCountCheck(value: email, count: 8) else {
+            return showAlert(error: "countEmail")
+        }
+        guard Validation.isCountCheck(value: password, count: 3) else {
+            return showAlert(error: "countPassword")
         }
 
-        let userDefaults = UserDefaults()
-        if userDefaults.object(forKey: "user_id") == nil {
+        let userDefault = UserDefaults.standard
+        guard userDefault.bool(forKey: "hasId") else {
 
-            let signUpRequest = SignUpRequest(email: email, password:pwFirst)
+            let signUpRequest = SignUpRequest(email: email, password:password)
             Session.send(signUpRequest) { result in
                 switch result {
                 case .success(let response):
                 print(response)
-                userDefaults.register(defaults: ["user_id" : response.id])
-                userDefaults.register(defaults: ["request_token" : response.requestToken])
+                userDefault.register(defaults: ["user_id" : response.id])
+                userDefault.register(defaults: ["request_token" : response.requestToken])
+                userDefault.set(true, forKey: "hasId")
+                self.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                self.showAlert()
+                self.showAlert(error:"ApiError")
                 }
             }
+        return
         }
         self.dismiss(animated: true, completion: nil)
-    }
-
-    func isEmptycheck(email: String, pwFirst: String, pwSecond:String) -> Bool {
-        return email != "" || pwFirst != "" || pwSecond != ""
-    }
-
-    func isEqualCheck(pwFirst: String, pwSecond: String) -> Bool {
-        return pwFirst == pwSecond
-    }
-
-    func isCountCheck(email: String, pwFirst: String) -> Bool {
-        let email = email.characters.count
-        let pwFirst = pwFirst.characters.count
-        return email >= 8 && pwFirst >= 6
     }
 
     override func viewDidLoad() {
@@ -71,10 +70,10 @@ class AccountViewController: UIViewController {
 }
 
 extension AccountViewController {
-    func showAlert() {
+    func showAlert(error: String) {
         let alert = UIAlertController (
             title: "Error",
-            message: nil,
+            message: error,
             preferredStyle: .alert
         )
         let alertAction = UIAlertAction (
@@ -83,6 +82,6 @@ extension AccountViewController {
             handler: nil
         )
         alert.addAction(alertAction)
-        present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 }

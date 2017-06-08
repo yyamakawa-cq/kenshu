@@ -36,7 +36,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycw-3E-UOv">
                                 <rect key="frame" x="37" y="102" width="300" height="44"/>
@@ -70,7 +70,7 @@
                                 </constraints>
                                 <state key="normal" title="ログイン"/>
                                 <connections>
-                                    <segue destination="KLr-Pl-jAQ" kind="presentation" id="XQz-ck-3Xe"/>
+                                    <action selector="didSignInButtonTap" destination="BYZ-38-t0r" eventType="touchDown" id="gdn-mr-FlK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,6 +96,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5zc-uZ-BKD"/>
+                    <connections>
+                        <outlet property="emailAdressTextField" destination="ycw-3E-UOv" id="PsA-GW-Cc3"/>
+                        <outlet property="passwordTextField" destination="l9o-fL-GNC" id="RaX-Xa-nIH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,7 +168,7 @@
         <!--Account-->
         <scene sceneID="Tyh-1e-cg3">
             <objects>
-                <viewController storyboardIdentifier="Account" title="Account" id="LsQ-7X-0rp" customClass="AccountViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountVC" title="Account" id="LsQ-7X-0rp" customClass="AccountViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JgE-YA-O6T"/>
                         <viewControllerLayoutGuide type="bottom" id="tBt-vi-6Ka"/>
@@ -626,7 +630,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="FeO-5b-jqv">
             <objects>
-                <tabBarController modalTransitionStyle="crossDissolve" id="KLr-Pl-jAQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalTransitionStyle="crossDissolve" id="KLr-Pl-jAQ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="tLt-wt-4mO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
