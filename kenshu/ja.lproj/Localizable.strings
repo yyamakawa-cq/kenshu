@@ -11,3 +11,7 @@
 "email" = "メールアドレス";
 "password" = "パスワード";
 "comfirmPwd" = "確認パスワード";
+"bookTitle" = "書籍名";
+"bookPrice" = "金額";
+"bookPurchaseDate" = "購入日";
+"bookImage" = "表紙画像";

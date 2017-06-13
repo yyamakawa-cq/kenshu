@@ -34,16 +34,16 @@ class BookDetailViewController: UIViewController {
         let bookImageString = bookImageData.base64EncodedString()
 
         guard Validation.isEmptycheck(value: bookTitle!) else {
-            return showAlert(error: R.string.localizable.errorEmpty("booktitle"))
+            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
         }
         guard Validation.isEmptycheck(value: bookPrice!) else {
-            return showAlert(error: R.string.localizable.errorEmpty("bookprice"))
+            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()))
         }
         guard Validation.isEmptycheck(value: bookPurchaseDate!) else {
-            return showAlert(error: R.string.localizable.errorEmpty("bookpurchasedate"))
+            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()))
         }
         guard bookImage != R.image.sample() else {
-            return showAlert(error: R.string.localizable.errorEmpty("bookimage"))
+            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
         }
         let bookAddRequest = BookAddRequest(name: bookTitle!, price: Int(bookPrice!)!, purchaseDate:bookPurchaseDate!,imageData: bookImageString)
         Session.send(bookAddRequest) { result in

@@ -11,3 +11,7 @@
 "email" = "email";
 "password" = "password";
 "comfirmPwd" = "comfirmPwd";
+"bookTitle" = "booktitle";
+"bookPrice" = "bookprice";
+"bookPurchaseDate" = "bookpurchasedate";
+"bookImage" = "bookimage";
