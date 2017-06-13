@@ -37,6 +37,22 @@ class LoginViewController: UIViewController {
         }
     }
 
+    //アラート表示
+    func showAlert(error: String) {
+        let alert = UIAlertController (
+            title: R.string.localizable.error(),
+            message: error,
+            preferredStyle: .alert
+        )
+        let alertAction = UIAlertAction (
+            title: R.string.localizable.ok(),
+            style: .default,
+            handler: nil
+        )
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -52,22 +68,5 @@ class LoginViewController: UIViewController {
             let firstView = R.storyboard.main.accountVC()!
             return present(firstView, animated: true, completion: nil)
         }
-    }
-}
-
-extension LoginViewController {
-    func showAlert(error: String) {
-        let alert = UIAlertController (
-            title: R.string.localizable.error(),
-            message: error,
-            preferredStyle: .alert
-        )
-        let alertAction = UIAlertAction (
-            title: R.string.localizable.ok(),
-            style: .default,
-            handler: nil
-        )
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
     }
 }

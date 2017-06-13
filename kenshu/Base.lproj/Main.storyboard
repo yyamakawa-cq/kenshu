@@ -290,6 +290,9 @@
                                     <constraint firstAttribute="height" constant="44" id="MBu-jX-dYt"/>
                                 </constraints>
                                 <state key="normal" title="もっと読み込む"/>
+                                <connections>
+                                    <action selector="didLoadButtonTap:" destination="Nbp-6I-Qo9" eventType="touchUpInside" id="1Ld-7i-R03"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5N-wc-dbh">
                                 <rect key="frame" x="0.0" y="64" width="375" height="497"/>
@@ -523,7 +526,11 @@
                                                 <action selector="didCloseButtonTap:" destination="Dib-co-iIW" id="mTd-ht-ywQ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="保存" id="AlS-4X-lJb"/>
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="AlS-4X-lJb">
+                                            <connections>
+                                                <action selector="didSaveButtonTap" destination="Dib-co-iIW" id="7f4-rk-lMq"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -620,7 +627,9 @@
                     </view>
                     <connections>
                         <outlet property="bookImageView" destination="hbM-B7-zwe" id="LYk-Nh-wQg"/>
+                        <outlet property="bookPriceTextField" destination="5nr-1m-yJy" id="dMS-4P-0RH"/>
                         <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="Rrh-2S-pya"/>
+                        <outlet property="bookTitleTextField" destination="cLa-T9-39h" id="jZa-eA-gAx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOX-GD-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>

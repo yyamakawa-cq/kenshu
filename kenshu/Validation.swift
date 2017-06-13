@@ -14,4 +14,5 @@ class Validation {
         let valueCount = value.characters.count
         return valueCount >= count
     }
+
 }

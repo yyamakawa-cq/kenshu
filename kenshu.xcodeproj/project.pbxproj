@@ -21,6 +21,8 @@
 		505DBC6A1EE0FDEB0040CF7F /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505DBC691EE0FDEB0040CF7F /* Rswift.framework */; };
 		505DBC6E1EE102390040CF7F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505DBC6D1EE102390040CF7F /* R.generated.swift */; };
 		505FA4841EE01DA100B8D79A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 505FA4861EE01DA100B8D79A /* Localizable.strings */; };
+		505FCE5B1EEA5B68008F67D8 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FCE5A1EEA5B68008F67D8 /* BookList.swift */; };
+		505FCE5D1EEA82DE008F67D8 /* BookAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505FCE5C1EEA82DE008F67D8 /* BookAdd.swift */; };
 		506D39F11EE5061300401F08 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D39F01EE5061300401F08 /* APIKit.framework */; };
 		506D39F31EE5062800401F08 /* Himotoki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D39F21EE5062800401F08 /* Himotoki.framework */; };
 		506D39F51EE5064200401F08 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D39F41EE5064200401F08 /* Result.framework */; };
@@ -70,6 +72,8 @@
 		505FA4811EE01D0600B8D79A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		505FA4851EE01DA100B8D79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		505FA4871EE01DA600B8D79A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		505FCE5A1EEA5B68008F67D8 /* BookList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
+		505FCE5C1EEA82DE008F67D8 /* BookAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookAdd.swift; sourceTree = "<group>"; };
 		506D39F01EE5061300401F08 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		506D39F21EE5062800401F08 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
 		506D39F41EE5064200401F08 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				506D39FA1EE5150D00401F08 /* Api.swift */,
 				50AA13561EADE46400E08A2A /* AppDelegate.swift */,
 				503E1F1A1ED6DA4800FC3F75 /* Book.swift */,
+				505FCE5A1EEA5B68008F67D8 /* BookList.swift */,
+				505FCE5C1EEA82DE008F67D8 /* BookAdd.swift */,
 				504A3CE01EB34805002FB17C /* BookDetailViewController.swift */,
 				504A3D281EB73A6E002FB17C /* BookListTableViewCell.swift */,
 				504A3CD81EB34420002FB17C /* BookListViewController.swift */,
@@ -387,7 +393,9 @@
 				50AA13591EADE46400E08A2A /* LoginViewController.swift in Sources */,
 				506D39FD1EE5175800401F08 /* SignUp.swift in Sources */,
 				50AA13571EADE46400E08A2A /* AppDelegate.swift in Sources */,
+				505FCE5B1EEA5B68008F67D8 /* BookList.swift in Sources */,
 				504A3D291EB73A6E002FB17C /* BookListTableViewCell.swift in Sources */,
+				505FCE5D1EEA82DE008F67D8 /* BookAdd.swift in Sources */,
 				504A3CDF1EB3475D002FB17C /* AccountViewController.swift in Sources */,
 				500C51971EE8FFA900757E57 /* Login.swift in Sources */,
 				500C51951EE8F5A900757E57 /* Validation.swift in Sources */,
@@ -564,14 +572,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = kenshu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yukari.kenshu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -580,14 +592,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = kenshu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yukari.kenshu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

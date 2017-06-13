@@ -1,22 +1,39 @@
 import Foundation
+import APIKit
+import Himotoki
 
-class Book {
+struct Book: Decodable {
+    var bookId: Int // swiftlint:disable:this identifier_name
     var imageUrl: String
     var title: String
     var price: Int
-    var purchasedDate: String
+    var purchaseDate: String
 
-    init() {
-        imageUrl = ""
-        title = ""
-        price = 0
-        purchasedDate = ""
+    static func decode(_ e: Extractor) throws -> Book { // swiftlint:disable:this identifier_name
+        return try Book(
+            bookId:e <| "id",
+            imageUrl:e <| "image_url",
+            title:e <| "name",
+            price:e <| "price",
+            purchaseDate:e <| "purchase_date"
+        )
     }
+}
 
-    init(imageUrl: String, title: String, price: Int, purchasedDate: String) {
-        self.imageUrl = imageUrl
-        self.title = title
-        self.price = price
-        self.purchasedDate = purchasedDate
+struct BookGetResult:Decodable {
+    var book: [Book]
+    static func decode(_ e: Extractor) throws -> BookGetResult { // swiftlint:disable:this identifier_name
+        return try BookGetResult(
+            book:e <|| "result"
+        )
+    }
+}
+
+struct BookPostResult:Decodable {
+    var bookId: Int
+    static func decode(_ e: Extractor) throws -> BookPostResult { // swiftlint:disable:this identifier_name
+        return try BookPostResult(
+            bookId:e <| "book_id"
+        )
     }
 }
