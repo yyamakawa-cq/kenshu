@@ -275,7 +275,7 @@
         <!--List-->
         <scene sceneID="C75-Ar-Qky">
             <objects>
-                <viewController title="List" id="Nbp-6I-Qo9" customClass="BookListViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListVC" title="List" id="Nbp-6I-Qo9" customClass="BookListViewController" customModule="kenshu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hnX-do-jdH"/>
                         <viewControllerLayoutGuide type="bottom" id="4C7-bu-4CP"/>
@@ -495,11 +495,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="書籍編集" id="Ptj-ZB-KNe">
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="xUS-Rt-X1i"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="xUS-Rt-X1i">
+                            <connections>
+                                <action selector="didSaveButtonTap" destination="j1h-8F-G4Z" id="cZ8-pu-U8P"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bookImageView" destination="ass-fm-9ki" id="pC9-My-PUl"/>
-                        <outlet property="bookPriceTextField" destination="b7h-Ld-S1F" id="0KA-Mr-WH4"/>
+                        <outlet property="bookPriceTextField" destination="b7h-Ld-S1F" id="YXV-DM-hht"/>
                         <outlet property="bookPurchaseDateTextField" destination="i5m-b5-kgB" id="IMb-zM-8RZ"/>
                         <outlet property="bookTitleTextField" destination="djA-GI-YqA" id="hKZ-nb-QrE"/>
                     </connections>
@@ -630,6 +634,7 @@
                     </view>
                     <connections>
                         <outlet property="bookImageView" destination="hbM-B7-zwe" id="LYk-Nh-wQg"/>
+                        <outlet property="bookPriceTextField" destination="5nr-1m-yJy" id="oD8-qD-PcE"/>
                         <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="Rrh-2S-pya"/>
                         <outlet property="bookTitleTextField" destination="cLa-T9-39h" id="jZa-eA-gAx"/>
                     </connections>

@@ -22,38 +22,64 @@ class BookDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    //保存ボタンタップ
+    //保存ボタンタップ 長すぎなので分割する
     @IBAction func didSaveButtonTap() {
-        let bookTitle = bookTitleTextField.text
-        let bookPrice = bookPriceTextField.text
-        let bookPurchaseDate = bookPurchaseDateTextField.text?.replacingOccurrences(of: "/", with: "-")
+        let bookTitle = bookTitleTextField.text!
+        let bookPrice = bookPriceTextField.text!
+        let bookPurchaseDate = (bookPurchaseDateTextField.text?.replacingOccurrences(of: "/", with: "-"))!
         let bookImage = bookImageView.image
         let bookImageSize = CGSize(width:160, height:100)
         let bookImageResize = bookImageView.image?.resizeImage(size: bookImageSize)
         let bookImageData = UIImagePNGRepresentation(bookImageResize!)! as NSData
         let bookImageString = bookImageData.base64EncodedString()
 
-        guard Validation.isEmptycheck(value: bookTitle!) else {
+        guard Validation.isEmptycheck(value: bookTitle) else {
             return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
         }
-        guard Validation.isEmptycheck(value: bookPrice!) else {
+        guard Validation.isEmptycheck(value: bookPrice) else {
             return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()))
         }
-        guard Validation.isEmptycheck(value: bookPurchaseDate!) else {
+        guard Validation.isEmptycheck(value: bookPurchaseDate) else {
             return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()))
         }
         guard bookImage != R.image.sample() else {
             return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
         }
-        let bookAddRequest = BookAddRequest(name: bookTitle!, price: Int(bookPrice!)!, purchaseDate:bookPurchaseDate!,imageData: bookImageString)
-        Session.send(bookAddRequest) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-                self.dismiss(animated: true, completion: nil)
-            case .failure(let error):
-                print(error)
-                self.showAlert(error: R.string.localizable.errorApi())
+        switch screen! {
+        case .edit:
+            let bookEditRequest = BookEditRequest(
+                bookId:selectBook.bookId,
+                name: bookTitle,
+                price: Int(bookPrice)!,
+                purchaseDate:bookPurchaseDate,
+                imageData: bookImageString
+            )
+            Session.send(bookEditRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    self.navigationController?.popViewController(animated: true)
+                case .failure(let error):
+                    print(error)
+                    self.showAlert(error: R.string.localizable.errorApi())
+                }
+            }
+        case .add:
+            let bookAddRequest = BookAddRequest(
+                name: bookTitle,
+                price: Int(bookPrice)!,
+                purchaseDate:bookPurchaseDate,
+                imageData: bookImageString
+            )
+            Session.send(bookAddRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    self.dismiss(animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    self.showAlert(error: R.string.localizable.errorApi())
+                }
             }
         }
     }
@@ -106,10 +132,6 @@ class BookDetailViewController: UIViewController {
     func didBackButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-
-    //保存ボタンタップ
-//    func didSavebuttonTapEdit {
-//    }
 
     //アラート表示
     func showAlert(error: String) {

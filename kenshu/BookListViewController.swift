@@ -5,6 +5,8 @@ class BookListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    let pageFrom = 0
+    var pageTo:Int?
     var books: [Book] = []
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
@@ -14,11 +16,13 @@ class BookListViewController: UIViewController {
     }
 
     @IBAction func didLoadButtonTap(_ sender: Any) {
-        getBooks()
+        pageTo = pageTo!+1
+        let page = pageFrom.description + "-" + (pageTo?.description)!
+        getBooks(page: page)
     }
 
-    func getBooks() {
-        let bookListRequest = BookListRequest(page:"0-100")
+    func getBooks(page: String) {
+        let bookListRequest = BookListRequest(page: page)
         Session.send(bookListRequest) { result in
             switch result {
             case .success(let response):
@@ -36,7 +40,9 @@ class BookListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBooks()
+        pageTo = 150
+        let page = pageFrom.description + "-" + (pageTo?.description)!
+        getBooks(page:page)
     }
 
     override func didReceiveMemoryWarning() {
