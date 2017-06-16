@@ -383,6 +383,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="L5N-wc-dbh" id="c5N-i1-iwj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ed-83-Zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -627,7 +630,6 @@
                     </view>
                     <connections>
                         <outlet property="bookImageView" destination="hbM-B7-zwe" id="LYk-Nh-wQg"/>
-                        <outlet property="bookPriceTextField" destination="5nr-1m-yJy" id="dMS-4P-0RH"/>
                         <outlet property="bookPurchaseDateTextField" destination="368-lY-5jC" id="Rrh-2S-pya"/>
                         <outlet property="bookTitleTextField" destination="cLa-T9-39h" id="jZa-eA-gAx"/>
                     </connections>

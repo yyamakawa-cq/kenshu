@@ -3,13 +3,9 @@ import APIKit
 
 class BookListViewController: UIViewController {
 
-    let books = [
-    Book(bookId: 1, imageUrl: "NEKOIMG_1.jpg", title: "ネコ1", price: 1000, purchaseDate: "2017/01/01"),
-    Book(bookId: 2,imageUrl: "NEKOIMG_2.jpg", title: "ネコ2", price: 2000, purchaseDate: "2017/02/01"),
-    Book(bookId: 3,imageUrl: "NEKOIMG_3.jpg", title: "ネコ3", price: 3000, purchaseDate: "2017/03/01"),
-    Book(bookId: 4,imageUrl: "NEKOIMG_4.jpg", title: "ネコ4", price: 4000, purchaseDate: "2017/04/01"),
-    Book(bookId: 5,imageUrl: "NEKOIMG_5.jpg", title: "ネコ5", price: 5000, purchaseDate: "2017/05/01")
-    ]
+    @IBOutlet weak var tableView: UITableView!
+
+    var books: [Book] = []
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
         let nextView = R.storyboard.main.bookDetailVCAdd()!
@@ -22,11 +18,16 @@ class BookListViewController: UIViewController {
     }
 
     func getBooks() {
-        let bookListRequest = BookListRequest(page: "0-100")
+        let bookListRequest = BookListRequest(page:"0-100")
         Session.send(bookListRequest) { result in
             switch result {
             case .success(let response):
                 print(response)
+                self.books = response.book
+                print(self.books)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
@@ -35,6 +36,7 @@ class BookListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getBooks()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,10 +55,12 @@ extension BookListViewController: UITableViewDelegate {
         //セルを取得
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myCell)
         //セルに値を設定
-        cell?.bookImageView.image = UIImage(named: books[indexPath.row].imageUrl)
-        cell?.bookTitleLabel.text = books[indexPath.row].title
-        cell?.bookPriceLabel.text = R.string.localizable.currency(books[indexPath.row].price)
-        cell?.bookPurchaseDateLabel.text = books[indexPath.row].purchaseDate
+        cell?.setCell(
+            imageUrl: books[indexPath.row].imageUrl,
+            title: books[indexPath.row].title,
+            price: books[indexPath.row].price,
+            purchaseDate: books[indexPath.row].purchaseDate
+        )
         return cell!
     }
 }
@@ -64,12 +68,7 @@ extension BookListViewController: UITableViewDelegate {
 extension BookListViewController: UITableViewDataSource {
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let selectBook = Book(
-            bookId: 1,
-            imageUrl: books[indexPath.row].imageUrl,
-            title: books[indexPath.row].title,
-            price: books[indexPath.row].price,
-            purchaseDate: books[indexPath.row].purchaseDate)
+        let selectBook = books[indexPath.row]
         let nextView = R.storyboard.main.bookDetailVCEdit()!
         nextView.selectBook = selectBook
         nextView.screen = .edit

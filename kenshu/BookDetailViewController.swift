@@ -97,7 +97,7 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.text = DateFormat.dateToString(date: sender.date)
     }
 
-    //完了ボタンタップ
+    //Picker完了ボタンタップ
     func didDatePickerDoneTap() {
         bookPurchaseDateTextField.resignFirstResponder()
     }
@@ -106,6 +106,10 @@ class BookDetailViewController: UIViewController {
     func didBackButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
+
+    //保存ボタンタップ
+//    func didSavebuttonTapEdit {
+//    }
 
     //アラート表示
     func showAlert(error: String) {
@@ -137,10 +141,15 @@ class BookDetailViewController: UIViewController {
                 )
                 self.navigationItem.leftBarButtonItem = leftButton
                 //既存の値の表示
-                bookImageView.image = UIImage(named:selectBook.imageUrl)
+                let purchaseDate = DateFormat.stringToDate(date: selectBook.purchaseDate)
+                let imageData = {() -> UIImage in
+                    let urlToImage = UrlToImage()
+                    return urlToImage.loadImage(imageUrl: self.selectBook.imageUrl)!
+                }
+                bookImageView.image = imageData()
                 bookTitleTextField.text = selectBook.title
-                bookPriceTextField?.text = selectBook.price.description
-                bookPurchaseDateTextField?.text = selectBook.purchaseDate
+                bookPriceTextField.text = selectBook.price.description
+                bookPurchaseDateTextField.text = DateFormat.dateToString(date: purchaseDate as Date)
             case .add:
                 bookImageView?.image = R.image.sample()
             }

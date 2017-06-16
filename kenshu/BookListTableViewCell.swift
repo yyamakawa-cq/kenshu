@@ -10,6 +10,18 @@ class BookListTableViewCell: UITableViewCell {
     //更新日を表示するLabel
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
 
+    func setCell(imageUrl:String, title:String, price:Int, purchaseDate:String) {
+        let purchaseDate = DateFormat.stringToDate(date:purchaseDate)
+        let imageData = {() -> UIImage in
+            let urlToImage = UrlToImage()
+            return urlToImage.loadImage(imageUrl: imageUrl)!
+        }
+        bookImageView.image = imageData()
+        bookTitleLabel.text = title
+        bookPriceLabel.text = R.string.localizable.currency(price)
+        bookPurchaseDateLabel.text = DateFormat.dateToString(date: purchaseDate as Date)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
