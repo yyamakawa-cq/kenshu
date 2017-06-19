@@ -32,7 +32,6 @@ struct BookEditRequest: ApiRequest {
             "price": self.price,
             "purchase_date": self.purchaseDate,
             "image_data": self.imageData
-            //"user_id": UserDefaults.standard.integer(forKey: "user_id")
             ])
     }
 

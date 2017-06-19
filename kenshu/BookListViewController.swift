@@ -38,11 +38,15 @@ class BookListViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let page = pageFrom.description + "-" + (pageTo?.description)!
+        getBooks(page:page)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         pageTo = 150
-        let page = pageFrom.description + "-" + (pageTo?.description)!
-        getBooks(page:page)
     }
 
     override func didReceiveMemoryWarning() {
