@@ -22,66 +22,38 @@ class BookDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    //保存ボタンタップ 長すぎなので分割する
+    //保存ボタンタップ
     @IBAction func didSaveButtonTap() {
         let bookTitle = bookTitleTextField.text!
         let bookPrice = bookPriceTextField.text!
-        let bookPurchaseDate = (bookPurchaseDateTextField.text?.replacingOccurrences(of: "/", with: "-"))!
+        let bookPurchaseDate = bookPurchaseDateTextField.text!
         let bookImage = bookImageView.image
-        let bookImageSize = CGSize(width:160, height:100)
-        let bookImageResize = bookImageView.image?.resizeImage(size: bookImageSize)
-        let bookImageData = UIImagePNGRepresentation(bookImageResize!)! as NSData
-        let bookImageString = bookImageData.base64EncodedString()
 
         guard Validation.isEmptycheck(value: bookTitle) else {
-            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
+            return Alert.showAlert(
+                error: R.string.localizable.errorEmpty(R.string.localizable.bookTitle()),
+                view: self
+            )
         }
         guard Validation.isEmptycheck(value: bookPrice) else {
-            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()))
+            return Alert.showAlert(
+                error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()),
+                view: self
+            )
         }
         guard Validation.isEmptycheck(value: bookPurchaseDate) else {
-            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()))
+            return Alert.showAlert(
+                error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()),
+                view:self
+            )
         }
         guard bookImage != R.image.sample() else {
-            return showAlert(error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()))
-        }
-        switch screen! {
-        case .edit:
-            let bookEditRequest = BookEditRequest(
-                bookId:selectBook.bookId,
-                name: bookTitle,
-                price: Int(bookPrice)!,
-                purchaseDate:bookPurchaseDate,
-                imageData: bookImageString
+            return Alert.showAlert(
+                error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()),
+                view: self
             )
-            Session.send(bookEditRequest) { result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    self.navigationController?.popViewController(animated: true)
-                case .failure(let error):
-                    print(error)
-                    self.showAlert(error: R.string.localizable.errorApi())
-                }
-            }
-        case .add:
-            let bookAddRequest = BookAddRequest(
-                name: bookTitle,
-                price: Int(bookPrice)!,
-                purchaseDate:bookPurchaseDate,
-                imageData: bookImageString
-            )
-            Session.send(bookAddRequest) { result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    self.dismiss(animated: true, completion: nil)
-                case .failure(let error):
-                    print(error)
-                    self.showAlert(error: R.string.localizable.errorApi())
-                }
-            }
         }
+        apiRequest(name:bookTitle, price:bookPrice, puruchaseDate: bookPurchaseDate, image:bookImage!)
     }
 
     //画像添付ボタンタップ
@@ -118,6 +90,53 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
     }
 
+    //ApiRequest
+    func apiRequest(name:String, price:String, puruchaseDate:String, image:UIImage) {
+        let purchaseDate = (puruchaseDate.replacingOccurrences(of: "/", with: "-"))
+        let imageSize = CGSize(width:160, height:100)
+        let imageResize = bookImageView.image?.resizeImage(size: imageSize)
+        let imageData = UIImagePNGRepresentation(imageResize!)! as NSData
+        let imageString = imageData.base64EncodedString()
+
+        switch screen! {
+        case .edit:
+            let bookEditRequest = BookEditRequest(
+                bookId:selectBook.bookId,
+                name: name,
+                price: Int(price)!,
+                purchaseDate:purchaseDate,
+                imageData: imageString
+            )
+            Session.send(bookEditRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    self.didBackButtonTapped()
+                case .failure(let error):
+                    print(error)
+                    Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
+                }
+            }
+        case .add:
+            let bookAddRequest = BookAddRequest(
+                name: name,
+                price: Int(price)!,
+                purchaseDate:purchaseDate,
+                imageData: imageString
+            )
+            Session.send(bookAddRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    self.dismiss(animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
+                }
+            }
+        }
+    }
+
     //Pickerで選択した値をTextFieldに入れる
     func didDateChanged(sender: UIDatePicker) {
         bookPurchaseDateTextField.text = DateFormat.dateToString(date: sender.date)
@@ -131,22 +150,6 @@ class BookDetailViewController: UIViewController {
     //戻るボタンタップ
     func didBackButtonTapped() {
         self.navigationController?.popViewController(animated: true)
-    }
-
-    //アラート表示
-    func showAlert(error: String) {
-        let alert = UIAlertController (
-            title: R.string.localizable.error(),
-            message: error,
-            preferredStyle: .alert
-        )
-        let alertAction = UIAlertAction (
-            title: R.string.localizable.ok(),
-            style: .default,
-            handler: nil
-        )
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -191,6 +194,7 @@ extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigatio
     }
 }
 
+//画像リサイズ処理
 extension UIImage {
     func resizeImage(size: CGSize) -> UIImage? {
         let widthRatio = size.width / size.width

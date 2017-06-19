@@ -12,10 +12,10 @@ class LoginViewController: UIViewController {
         let strPassword = R.string.localizable.password()
 
         guard Validation.isEmptycheck(value: email) else {
-            return showAlert(error: R.string.localizable.errorEmpty(strEmail))
+            return Alert.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
         guard Validation.isEmptycheck(value: password) else {
-            return showAlert(error: R.string.localizable.errorEmpty(strPassword))
+            return Alert.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
         let loginRequest = LoginRequest(email: email, password:password)
         Session.send(loginRequest) { result in
@@ -32,25 +32,9 @@ class LoginViewController: UIViewController {
                 self.present(nextView, animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                self.showAlert(error: R.string.localizable.errorApi())
+                Alert.showAlert(error: R.string.localizable.errorApi(), view: self)
             }
         }
-    }
-
-    //アラート表示
-    func showAlert(error: String) {
-        let alert = UIAlertController (
-            title: R.string.localizable.error(),
-            message: error,
-            preferredStyle: .alert
-        )
-        let alertAction = UIAlertAction (
-            title: R.string.localizable.ok(),
-            style: .default,
-            handler: nil
-        )
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

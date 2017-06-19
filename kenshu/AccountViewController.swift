@@ -9,7 +9,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var emailAdressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var comfirmPasswordTextField: UITextField!
-
     @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -23,22 +22,22 @@ class AccountViewController: UIViewController {
         let strComfirmPwd = R.string.localizable.comfirmPwd()
 
         guard Validation.isEmptycheck(value: email) else {
-            return showAlert(error: R.string.localizable.errorEmpty(strEmail))
+            return Alert.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
         guard Validation.isEmptycheck(value: password) else {
-            return showAlert(error: R.string.localizable.errorEmpty(strPassword))
+            return Alert.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
         guard Validation.isEmptycheck(value: comfirmPwd) else {
-            return showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd))
+            return Alert.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
         }
         guard Validation.isEqualCheck(pwFirst: password, pwSecond: comfirmPwd) else {
-            return showAlert(error: R.string.localizable.errorPasswod())
+            return Alert.showAlert(error: R.string.localizable.errorPasswod(), view: self)
         }
         guard Validation.isCountCheck(value: email, count: 8) else {
-            return showAlert(error: R.string.localizable.errorCount(strEmail))
+            return Alert.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
         }
         guard Validation.isCountCheck(value: password, count: 3) else {
-            return showAlert(error: R.string.localizable.errorCount(strPassword))
+            return Alert.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
         }
 
         let userDefault = UserDefaults.standard
@@ -55,28 +54,12 @@ class AccountViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                self.showAlert(error: R.string.localizable.errorApi())
+                Alert.showAlert(error: R.string.localizable.errorApi(), view: self)
                 }
             }
         return
         }
         self.dismiss(animated: true, completion: nil)
-    }
-
-    //アラート表示
-    func showAlert(error: String) {
-        let alert = UIAlertController (
-            title: R.string.localizable.error(),
-            message: error,
-            preferredStyle: .alert
-        )
-        let alertAction = UIAlertAction (
-            title: R.string.localizable.ok(),
-            style: .default,
-            handler: nil
-        )
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

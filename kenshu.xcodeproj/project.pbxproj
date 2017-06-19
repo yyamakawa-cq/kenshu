@@ -13,6 +13,7 @@
 		500C51971EE8FFA900757E57 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C51961EE8FFA800757E57 /* Login.swift */; };
 		500F84541EF227360018234F /* UrlToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84531EF227360018234F /* UrlToImage.swift */; };
 		500F84561EF3B4720018234F /* BookEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84551EF3B4720018234F /* BookEdit.swift */; };
+		500F84581EF7B3200018234F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84571EF7B3200018234F /* Alert.swift */; };
 		5016754B1EDFD3E4008367C6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016754A1EDFD3E4008367C6 /* DateFormat.swift */; };
 		503E1F1B1ED6DA4800FC3F75 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E1F1A1ED6DA4800FC3F75 /* Book.swift */; };
 		504A3CD91EB34420002FB17C /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504A3CD81EB34420002FB17C /* BookListViewController.swift */; };
@@ -63,6 +64,7 @@
 		500C51961EE8FFA800757E57 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		500F84531EF227360018234F /* UrlToImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlToImage.swift; sourceTree = "<group>"; };
 		500F84551EF3B4720018234F /* BookEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookEdit.swift; sourceTree = "<group>"; };
+		500F84571EF7B3200018234F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5016754A1EDFD3E4008367C6 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		503E1F1A1ED6DA4800FC3F75 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		504A3CD81EB34420002FB17C /* BookListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5016754A1EDFD3E4008367C6 /* DateFormat.swift */,
 				500C51961EE8FFA800757E57 /* Login.swift */,
 				50AA13581EADE46400E08A2A /* LoginViewController.swift */,
+				500F84571EF7B3200018234F /* Alert.swift */,
 				500F84531EF227360018234F /* UrlToImage.swift */,
 				505DBC6D1EE102390040CF7F /* R.generated.swift */,
 				504A3CDA1EB3461E002FB17C /* SettingViewController.swift */,
@@ -413,6 +416,7 @@
 				503E1F1B1ED6DA4800FC3F75 /* Book.swift in Sources */,
 				505DBC6E1EE102390040CF7F /* R.generated.swift in Sources */,
 				504A3CE11EB34805002FB17C /* BookDetailViewController.swift in Sources */,
+				500F84581EF7B3200018234F /* Alert.swift in Sources */,
 				5016754B1EDFD3E4008367C6 /* DateFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

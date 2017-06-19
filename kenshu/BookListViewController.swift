@@ -17,7 +17,7 @@ class BookListViewController: UIViewController {
 
     @IBAction func didLoadButtonTap(_ sender: Any) {
         pageTo = pageTo!+1
-        let page = pageFrom.description + "-" + (pageTo?.description)!
+        let page = pageFrom.description + "-" + ((pageTo)?.description)!
         getBooks(page: page)
     }
 
