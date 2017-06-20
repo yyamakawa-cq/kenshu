@@ -112,7 +112,7 @@ class BookDetailViewController: UIViewController {
                 case .success(let response):
                     print(response)
                     self.didBackButtonTapped()
-                    
+
                 case .failure(let error):
                     print(error)
                     Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
