@@ -11,12 +11,14 @@ class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
 
     func setCell(imageUrl:String, title:String, price:Int, purchaseDate:String) {
-        let purchaseDate = DateFormat.stringToDate(date:purchaseDate)
-        let imageData = {() -> UIImage in
+        DispatchQueue.global(qos: .default).async {
             let urlToImage = UrlToImage()
-            return urlToImage.loadImage(imageUrl: imageUrl)!
+            let image = urlToImage.loadImage(imageUrl: imageUrl)!
+            DispatchQueue.main.async {
+                self.bookImageView.image = image
+            }
         }
-        bookImageView.image = imageData()
+        let purchaseDate = DateFormat.stringToDate(date:purchaseDate)
         bookTitleLabel.text = title
         bookPriceLabel.text = R.string.localizable.currency(price)
         bookPurchaseDateLabel.text = DateFormat.dateToString(date: purchaseDate as Date)
