@@ -2,11 +2,11 @@ import UIKit
 import APIKit
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var emailAdressTextField: UITextField!
+    @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
     @IBAction func didSignInButtonTap() {
-        let email = emailAdressTextField.text!
+        let email = emailAddressTextField.text!
         let password = passwordTextField.text!
         let strEmail = R.string.localizable.email()
         let strPassword = R.string.localizable.password()

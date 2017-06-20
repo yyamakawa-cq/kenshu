@@ -3,10 +3,7 @@ import APIKit
 
 class AccountViewController: UIViewController {
 
-    let alert = UIAlertController ()
-    let alertAction = UIAlertAction()
-
-    @IBOutlet weak var emailAdressTextField: UITextField!
+    @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var comfirmPasswordTextField: UITextField!
     @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
@@ -14,7 +11,7 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func editDone(_ sender: Any) {
-        let email = emailAdressTextField.text!
+        let email = emailAddressTextField.text!
         let password = passwordTextField.text!
         let comfirmPwd = comfirmPasswordTextField.text!
         let strEmail = R.string.localizable.email()

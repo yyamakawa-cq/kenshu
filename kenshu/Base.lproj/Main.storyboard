@@ -97,7 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5zc-uZ-BKD"/>
                     <connections>
-                        <outlet property="emailAdressTextField" destination="ycw-3E-UOv" id="PsA-GW-Cc3"/>
+                        <outlet property="emailAddressTextField" destination="ycw-3E-UOv" id="pfv-VP-LY6"/>
                         <outlet property="passwordTextField" destination="l9o-fL-GNC" id="RaX-Xa-nIH"/>
                     </connections>
                 </viewController>
@@ -264,7 +264,7 @@
                     </view>
                     <connections>
                         <outlet property="comfirmPasswordTextField" destination="4ng-E4-jUK" id="ICD-6h-cTj"/>
-                        <outlet property="emailAdressTextField" destination="Fbb-5y-Zuy" id="CsV-Wh-b1T"/>
+                        <outlet property="emailAddressTextField" destination="Fbb-5y-Zuy" id="a3X-vu-qPD"/>
                         <outlet property="passwordTextField" destination="90C-PY-e6n" id="6Ww-5D-6lV"/>
                     </connections>
                 </viewController>

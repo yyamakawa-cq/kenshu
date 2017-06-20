@@ -58,10 +58,9 @@ class BookDetailViewController: UIViewController {
 
     //画像添付ボタンタップ
     @IBAction func didPicAttachButtonTap(_ sender: AnyObject) {
-        let sourceType = UIImagePickerControllerSourceType.photoLibrary
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
+            cameraPicker.sourceType = .photoLibrary
             cameraPicker.delegate = self
             self.present(cameraPicker, animated: true, completion: nil)
         }
@@ -111,8 +110,7 @@ class BookDetailViewController: UIViewController {
                 switch result {
                 case .success(let response):
                     print(response)
-                    self.didBackButtonTapped()
-
+                    self.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     print(error)
                     Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
