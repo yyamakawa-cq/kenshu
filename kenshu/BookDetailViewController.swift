@@ -29,31 +29,31 @@ class BookDetailViewController: UIViewController {
         let bookPurchaseDate = bookPurchaseDateTextField.text!
         let bookImage = bookImageView.image
 
-        guard Validation.isEmptycheck(value: bookTitle) else {
-            return Alert.showAlert(
+        guard Validation.isEmpty(value: bookTitle) else {
+            return AlertDialog.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookTitle()),
                 view: self
             )
         }
-        guard Validation.isEmptycheck(value: bookPrice) else {
-            return Alert.showAlert(
+        guard Validation.isEmpty(value: bookPrice) else {
+            return AlertDialog.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()),
                 view: self
             )
         }
-        guard Validation.isEmptycheck(value: bookPurchaseDate) else {
-            return Alert.showAlert(
+        guard Validation.isEmpty(value: bookPurchaseDate) else {
+            return AlertDialog.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()),
                 view:self
             )
         }
         guard bookImage != R.image.sample() else {
-            return Alert.showAlert(
+            return AlertDialog.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()),
                 view: self
             )
         }
-        apiRequest(name:bookTitle, price:bookPrice, puruchaseDate: bookPurchaseDate, image:bookImage!)
+        saveBook(name:bookTitle, price:bookPrice, puruchaseDate: bookPurchaseDate, image:bookImage!)
     }
 
     //画像添付ボタンタップ
@@ -90,7 +90,7 @@ class BookDetailViewController: UIViewController {
     }
 
     //ApiRequest
-    func apiRequest(name:String, price:String, puruchaseDate:String, image:UIImage) {
+    func saveBook(name:String, price:String, puruchaseDate:String, image:UIImage) {
         let purchaseDate = (puruchaseDate.replacingOccurrences(of: "/", with: "-"))
         let imageSize = CGSize(width:160, height:100)
         let imageResize = bookImageView.image?.resizeImage(size: imageSize)
@@ -100,7 +100,7 @@ class BookDetailViewController: UIViewController {
         switch screen! {
         case .edit:
             let bookEditRequest = BookEditRequest(
-                bookId:selectBook.bookId,
+                id:selectBook.id,
                 name: name,
                 price: Int(price)!,
                 purchaseDate:purchaseDate,
@@ -113,7 +113,7 @@ class BookDetailViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     print(error)
-                    Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
+                    AlertDialog.showAlert(error: R.string.localizable.errorApi(),view: self)
                 }
             }
         case .add:
@@ -130,7 +130,7 @@ class BookDetailViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 case .failure(let error):
                     print(error)
-                    Alert.showAlert(error: R.string.localizable.errorApi(),view: self)
+                    AlertDialog.showAlert(error: R.string.localizable.errorApi(),view: self)
                 }
             }
         }
@@ -167,8 +167,7 @@ class BookDetailViewController: UIViewController {
                 //既存の値の表示
                 let purchaseDate = DateFormat.stringToDate(date: selectBook.purchaseDate)
                 let imageData = {() -> UIImage in
-                    let urlToImage = UrlToImage()
-                    return urlToImage.loadImage(imageUrl: self.selectBook.imageUrl)!
+                    return ImageDownloader.loadImage(imageUrl: self.selectBook.imageUrl)!
                 }
                 bookImageView.image = imageData()
                 bookTitleTextField.text = selectBook.title

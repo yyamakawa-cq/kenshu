@@ -65,7 +65,7 @@ extension BookListViewController: UITableViewDelegate {
         //セルを取得
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myCell)
         //セルに値を設定
-        cell?.setCell(
+        cell?.setCellBookData(
             imageUrl: books[indexPath.row].imageUrl,
             title: books[indexPath.row].title,
             price: books[indexPath.row].price,
@@ -78,9 +78,8 @@ extension BookListViewController: UITableViewDelegate {
 extension BookListViewController: UITableViewDataSource {
     //セルが選択された時:値を詳細画面に送る
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectBook = books[indexPath.row]
         let nextView = R.storyboard.main.bookDetailVCEdit()!
-        nextView.selectBook = selectBook
+        nextView.selectBook = books[indexPath.row]
         nextView.screen = .edit
         self.navigationController?.pushViewController(nextView, animated: true)
     }

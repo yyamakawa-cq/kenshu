@@ -3,7 +3,7 @@ import APIKit
 import Himotoki
 
 struct BookEditRequest: ApiRequest {
-    let bookId:Int
+    let id:Int // swiftlint:disable:this identifier_name
     let name:String
     let price:Int
     let purchaseDate:String
@@ -16,7 +16,7 @@ struct BookEditRequest: ApiRequest {
     }
 
     var path: String {
-        return "/books/\(self.bookId)"
+        return "/books/\(self.id)"
     }
 
     var headerFields: [String: String] {
@@ -35,11 +35,13 @@ struct BookEditRequest: ApiRequest {
             ])
     }
 
-    init(bookId:Int, name:String, price:Int, purchaseDate:String, imageData:String) {
-        self.bookId = bookId
+    // swiftlint:disable:next identifier_name
+    init(id:Int, name:String, price:Int, purchaseDate:String, imageData:String) {
+        self.id = id
         self.name = name
         self.price = price
         self.purchaseDate = purchaseDate
         self.imageData = imageData
     }
+    // swiftlint:disable:previos identifier_name
 }

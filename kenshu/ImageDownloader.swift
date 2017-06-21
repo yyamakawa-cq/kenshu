@@ -1,7 +1,7 @@
 import UIKit
 
-class UrlToImage {
-     func loadImage(imageUrl:String) -> UIImage? {
+class ImageDownloader {
+     static func loadImage(imageUrl:String) -> UIImage? {
         let imageUrl = URL(string:imageUrl)
         guard let url = imageUrl else {
             return nil
@@ -10,7 +10,7 @@ class UrlToImage {
         do {
             imageData = try Data(contentsOf: url)
         } catch {
-            print ("fail to download")
+            print ("Error:fail to download")
         }
        return UIImage(data: imageData!)
     }

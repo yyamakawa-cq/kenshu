@@ -1,6 +1,6 @@
 import UIKit
 
-class Alert {
+class AlertDialog {
     //アラート表示
     static func showAlert(error: String, view: UIViewController) {
         let alert = UIAlertController (

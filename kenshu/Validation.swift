@@ -2,17 +2,17 @@ import UIKit
 
 class Validation {
 
-    static func isEmptycheck(value: String) -> Bool {
-        return value != ""
+    static func isEmpty(value: String) -> Bool {
+        return value.isEmpty
     }
 
-    static func isEqualCheck(pwFirst: String, pwSecond: String) -> Bool {
+    static func isEqual(pwFirst: String, pwSecond: String) -> Bool {
         return pwFirst == pwSecond
     }
 
-    static func isCountCheck(value: String, count: Int) -> Bool {
+    static func checkValueCount(value: String, minCount: Int) -> Bool {
         let valueCount = value.characters.count
-        return valueCount >= count
+        return valueCount >= minCount
     }
 
 }

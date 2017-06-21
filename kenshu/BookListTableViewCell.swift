@@ -10,10 +10,9 @@ class BookListTableViewCell: UITableViewCell {
     //更新日を表示するLabel
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
 
-    func setCell(imageUrl:String, title:String, price:Int, purchaseDate:String) {
+    func setCellBookData(imageUrl:String, title:String, price:Int, purchaseDate:String) {
         DispatchQueue.global(qos: .default).async {
-            let urlToImage = UrlToImage()
-            let image = urlToImage.loadImage(imageUrl: imageUrl)!
+            let image = ImageDownloader.loadImage(imageUrl: imageUrl)!
             DispatchQueue.main.async {
                 self.bookImageView.image = image
             }

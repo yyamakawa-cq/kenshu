@@ -18,23 +18,23 @@ class AccountViewController: UIViewController {
         let strPassword = R.string.localizable.password()
         let strComfirmPwd = R.string.localizable.comfirmPwd()
 
-        guard Validation.isEmptycheck(value: email) else {
-            return Alert.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
+        guard Validation.isEmpty(value: email) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
-        guard Validation.isEmptycheck(value: password) else {
-            return Alert.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
+        guard Validation.isEmpty(value: password) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
-        guard Validation.isEmptycheck(value: comfirmPwd) else {
-            return Alert.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
+        guard Validation.isEmpty(value: comfirmPwd) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
         }
-        guard Validation.isEqualCheck(pwFirst: password, pwSecond: comfirmPwd) else {
-            return Alert.showAlert(error: R.string.localizable.errorPasswod(), view: self)
+        guard Validation.isEqual(pwFirst: password, pwSecond: comfirmPwd) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorPasswod(), view: self)
         }
-        guard Validation.isCountCheck(value: email, count: 8) else {
-            return Alert.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
+        guard Validation.checkValueCount(value: email, minCount: 8) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
         }
-        guard Validation.isCountCheck(value: password, count: 3) else {
-            return Alert.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
+        guard Validation.checkValueCount(value: password, minCount: 3) else {
+            return AlertDialog.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
         }
 
         let userDefault = UserDefaults.standard
@@ -44,14 +44,14 @@ class AccountViewController: UIViewController {
             Session.send(signUpRequest) { result in
                 switch result {
                 case .success(let response):
-                print(response)
-                userDefault.register(defaults: ["user_id" : response.id])
-                userDefault.register(defaults: ["request_token" : response.requestToken])
-                userDefault.set(true, forKey: "hasId")
-                self.dismiss(animated: true, completion: nil)
-            case .failure(let error):
-                print(error)
-                Alert.showAlert(error: R.string.localizable.errorApi(), view: self)
+                    print(response)
+                    userDefault.register(defaults: ["user_id" : response.id])
+                    userDefault.register(defaults: ["request_token" : response.requestToken])
+                    userDefault.set(true, forKey: "hasId")
+                    self.dismiss(animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    AlertDialog.showAlert(error: R.string.localizable.errorApi(), view: self)
                 }
             }
         return

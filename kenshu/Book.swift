@@ -3,7 +3,7 @@ import APIKit
 import Himotoki
 
 struct Book: Decodable {
-    var bookId: Int // swiftlint:disable:this identifier_name
+    var id: Int // swiftlint:disable:this identifier_name
     var imageUrl: String
     var title: String
     var price: Int
@@ -11,7 +11,7 @@ struct Book: Decodable {
 
     static func decode(_ e: Extractor) throws -> Book { // swiftlint:disable:this identifier_name
         return try Book(
-            bookId:e <| "id",
+            id:e <| "id",
             imageUrl:e <| "image_url",
             title:e <| "name",
             price:e <| "price",
