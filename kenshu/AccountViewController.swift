@@ -18,22 +18,22 @@ class AccountViewController: UIViewController {
         let strPassword = R.string.localizable.password()
         let strComfirmPwd = R.string.localizable.comfirmPwd()
 
-        guard Validation.isNotEmpty(value: email) else {
+        guard !email.isEmpty else {
             return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
-        guard Validation.isNotEmpty(value: password) else {
+        guard !password.isEmpty else {
             return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
-        guard Validation.isNotEmpty(value: comfirmPwd) else {
+        guard !comfirmPwd.isEmpty else {
             return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
         }
-        guard Validation.isEqual(pwFirst: password, pwSecond: comfirmPwd) else {
+        guard password == comfirmPwd else {
             return UIAlertController.showAlert(error: R.string.localizable.errorPasswod(), view: self)
         }
-        guard Validation.checkValueCount(value: email, minCount: 8) else {
+        guard email.characters.count >= 8 else {
             return UIAlertController.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
         }
-        guard Validation.checkValueCount(value: password, minCount: 3) else {
+        guard password.characters.count >= 3 else {
             return UIAlertController.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
         }
 

@@ -11,10 +11,10 @@ class LoginViewController: UIViewController {
         let strEmail = R.string.localizable.email()
         let strPassword = R.string.localizable.password()
 
-        guard Validation.isNotEmpty(value: email) else {
+        guard !email.isEmpty else {
             return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
-        guard Validation.isNotEmpty(value: password) else {
+        guard !password.isEmpty else {
             return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
         let loginRequest = LoginRequest(email: email, password:password)

@@ -29,19 +29,19 @@ class BookDetailViewController: UIViewController {
         let bookPurchaseDate = bookPurchaseDateTextField.text!
         let bookImage = bookImageView.image
 
-        guard Validation.isNotEmpty(value: bookTitle) else {
+        guard !bookTitle.isEmpty else {
             return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookTitle()),
                 view: self
             )
         }
-        guard Validation.isNotEmpty(value: bookPrice) else {
+        guard !bookPrice.isEmpty else {
             return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()),
                 view: self
             )
         }
-        guard Validation.isNotEmpty(value: bookPurchaseDate) else {
+        guard !bookPurchaseDate.isEmpty else {
             return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()),
                 view:self
