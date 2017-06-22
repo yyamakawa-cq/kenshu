@@ -2,8 +2,8 @@ import UIKit
 
 class Validation {
 
-    static func isEmpty(value: String) -> Bool {
-        return value.isEmpty
+    static func isNotEmpty(value: String) -> Bool {
+        return value != ""
     }
 
     static func isEqual(pwFirst: String, pwSecond: String) -> Bool {

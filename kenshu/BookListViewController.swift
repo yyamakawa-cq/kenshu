@@ -46,7 +46,7 @@ class BookListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageTo = 150
+        pageTo = 160
     }
 
     override func didReceiveMemoryWarning() {
