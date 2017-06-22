@@ -19,22 +19,22 @@ class AccountViewController: UIViewController {
         let strComfirmPwd = R.string.localizable.comfirmPwd()
 
         guard Validation.isNotEmpty(value: email) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
         guard Validation.isNotEmpty(value: password) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
         guard Validation.isNotEmpty(value: comfirmPwd) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
         }
         guard Validation.isEqual(pwFirst: password, pwSecond: comfirmPwd) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorPasswod(), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorPasswod(), view: self)
         }
         guard Validation.checkValueCount(value: email, minCount: 8) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
         }
         guard Validation.checkValueCount(value: password, minCount: 3) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
         }
 
         let userDefault = UserDefaults.standard
@@ -51,7 +51,7 @@ class AccountViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 case .failure(let error):
                     print(error)
-                    AlertDialog.showAlert(error: R.string.localizable.errorApi(), view: self)
+                    UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
                 }
             }
         return

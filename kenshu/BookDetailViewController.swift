@@ -30,25 +30,25 @@ class BookDetailViewController: UIViewController {
         let bookImage = bookImageView.image
 
         guard Validation.isNotEmpty(value: bookTitle) else {
-            return AlertDialog.showAlert(
+            return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookTitle()),
                 view: self
             )
         }
         guard Validation.isNotEmpty(value: bookPrice) else {
-            return AlertDialog.showAlert(
+            return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()),
                 view: self
             )
         }
         guard Validation.isNotEmpty(value: bookPurchaseDate) else {
-            return AlertDialog.showAlert(
+            return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()),
                 view:self
             )
         }
         guard bookImage != R.image.sample() else {
-            return AlertDialog.showAlert(
+            return UIAlertController.showAlert(
                 error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()),
                 view: self
             )
@@ -113,7 +113,7 @@ class BookDetailViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     print(error)
-                    AlertDialog.showAlert(error: R.string.localizable.errorApi(),view: self)
+                    UIAlertController.showAlert(error: R.string.localizable.errorApi(),view: self)
                 }
             }
         case .add:
@@ -130,7 +130,7 @@ class BookDetailViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 case .failure(let error):
                     print(error)
-                    AlertDialog.showAlert(error: R.string.localizable.errorApi(),view: self)
+                    UIAlertController.showAlert(error: R.string.localizable.errorApi(),view: self)
                 }
             }
         }

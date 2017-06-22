@@ -12,10 +12,10 @@ class LoginViewController: UIViewController {
         let strPassword = R.string.localizable.password()
 
         guard Validation.isNotEmpty(value: email) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
         }
         guard Validation.isNotEmpty(value: password) else {
-            return AlertDialog.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
+            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
         }
         let loginRequest = LoginRequest(email: email, password:password)
         Session.send(loginRequest) { result in
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
                 self.present(nextView, animated: true, completion: nil)
             case .failure(let error):
                 print(error)
-                AlertDialog.showAlert(error: R.string.localizable.errorApi(), view: self)
+                UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
             }
         }
     }
