@@ -38,6 +38,7 @@
 		50AA136C1EADE46500E08A2A /* kenshuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA136B1EADE46500E08A2A /* kenshuTests.swift */; };
 		50AA13771EADE46500E08A2A /* kenshuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA13761EADE46500E08A2A /* kenshuUITests.swift */; };
 		50FD5EDF1F00A30A00C1CD50 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD5EDE1F00A30A00C1CD50 /* Validate.swift */; };
+		50FD5EE11F00CE8B00C1CD50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FD5EE01F00CE8B00C1CD50 /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		50AA13761EADE46500E08A2A /* kenshuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshuUITests.swift; sourceTree = "<group>"; };
 		50AA13781EADE46500E08A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50FD5EDE1F00A30A00C1CD50 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
+		50FD5EE01F00CE8B00C1CD50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FD5EE11F00CE8B00C1CD50 /* Kingfisher.framework in Frameworks */,
 				506D39F51EE5064200401F08 /* Result.framework in Frameworks */,
 				506D39F31EE5062800401F08 /* Himotoki.framework in Frameworks */,
 				506D39F11EE5061300401F08 /* APIKit.framework in Frameworks */,
@@ -132,6 +135,7 @@
 		505DBC681EE0FDEB0040CF7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50FD5EE01F00CE8B00C1CD50 /* Kingfisher.framework */,
 				506D39F41EE5064200401F08 /* Result.framework */,
 				506D39F21EE5062800401F08 /* Himotoki.framework */,
 				506D39F01EE5061300401F08 /* APIKit.framework */,
@@ -371,6 +375,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Himotoki.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 			);

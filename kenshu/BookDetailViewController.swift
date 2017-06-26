@@ -1,5 +1,6 @@
 import UIKit
 import APIKit
+import Kingfisher
 
 class BookDetailViewController: UIViewController {
 
@@ -152,10 +153,8 @@ class BookDetailViewController: UIViewController {
                 self.navigationItem.leftBarButtonItem = leftButton
                 //既存の値の表示
                 let purchaseDate = DateFormat.stringToDate(date: selectBook.purchaseDate)
-                let imageData = {() -> UIImage in
-                    return ImageDownloader.loadImage(imageUrl: self.selectBook.imageUrl)!
-                }
-                bookImageView.image = imageData()
+                let imageData = URL(string:selectBook.imageUrl)
+                bookImageView.kf.setImage(with:imageData)
                 bookTitleTextField.text = selectBook.title
                 bookPriceTextField.text = selectBook.price.description
                 bookPurchaseDateTextField.text = DateFormat.dateToString(date: purchaseDate as Date)
