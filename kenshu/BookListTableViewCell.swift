@@ -11,13 +11,9 @@ class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
 
     func setCellBookData(imageUrl:String, title:String, price:Int, purchaseDate:String) {
-        DispatchQueue.global(qos: .default).async {
-            let image = ImageDownloader.loadImage(imageUrl: imageUrl)!
-            DispatchQueue.main.async {
-                self.bookImageView.image = image
-            }
-        }
+        let imageUrl = URL(string:imageUrl)
         let purchaseDate = DateFormat.stringToDate(date:purchaseDate)
+        bookImageView.kf.setImage(with:imageUrl)
         bookTitleLabel.text = title
         bookPriceLabel.text = R.string.localizable.currency(price)
         bookPurchaseDateLabel.text = DateFormat.dateToString(date: purchaseDate as Date)
