@@ -77,7 +77,7 @@ class BookDetailViewController: UIViewController {
 
     //ApiRequest
     func saveBook(name:String, price:String, puruchaseDate:String, image:UIImage) {
-        let purchaseDate = (puruchaseDate.replacingOccurrences(of: "/", with: "-"))
+        let purchaseDate = puruchaseDate.replacingOccurrences(of: "/", with: "-")
         let imageSize = CGSize(width:160, height:100)
         let imageResize = bookImageView.image?.resizeImage(size: imageSize)
         let imageData = UIImagePNGRepresentation(imageResize!)! as NSData
