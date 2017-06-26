@@ -28,10 +28,7 @@ class BookListViewController: UIViewController {
             case .success(let response):
                 print(response)
                 self.books = response.book
-                print(self.books)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
