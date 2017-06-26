@@ -1,4 +1,5 @@
 import UIKit
+
 //画像リサイズ処理
 extension UIImage {
     func resizeImage(size: CGSize) -> UIImage? {

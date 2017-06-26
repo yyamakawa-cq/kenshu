@@ -6,7 +6,7 @@ struct SignUpRequest: ApiRequest {
     let email:String
     let password:String
 
-    typealias Response = User
+    typealias Response = UserResponse
 
     var method: HTTPMethod {
         return .post
