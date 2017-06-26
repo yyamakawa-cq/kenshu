@@ -34,11 +34,4 @@ struct BookAddRequest: ApiRequest {
             "user_id": UserDefaults.standard.integer(forKey: "user_id")
             ])
     }
-
-    init(name:String, price:Int, purchaseDate:String, imageData:String) {
-        self.name = name
-        self.price = price
-        self.purchaseDate = purchaseDate
-        self.imageData = imageData
-    }
 }

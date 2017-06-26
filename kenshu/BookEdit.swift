@@ -34,14 +34,4 @@ struct BookEditRequest: ApiRequest {
             "image_data": self.imageData
             ])
     }
-
-    // swiftlint:disable:next identifier_name
-    init(id:Int, name:String, price:Int, purchaseDate:String, imageData:String) {
-        self.id = id
-        self.name = name
-        self.price = price
-        self.purchaseDate = purchaseDate
-        self.imageData = imageData
-    }
-    // swiftlint:disable:previos identifier_name
 }

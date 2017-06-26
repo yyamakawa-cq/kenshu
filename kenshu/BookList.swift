@@ -28,8 +28,4 @@ struct BookListRequest: ApiRequest {
             "page": self.page
         ]
     }
-
-    init(page:String) {
-        self.page = page
-    }
 }
