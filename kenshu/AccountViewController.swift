@@ -14,49 +14,34 @@ class AccountViewController: UIViewController {
         let email = emailAddressTextField.text!
         let password = passwordTextField.text!
         let comfirmPwd = comfirmPasswordTextField.text!
-        let strEmail = R.string.localizable.email()
-        let strPassword = R.string.localizable.password()
-        let strComfirmPwd = R.string.localizable.comfirmPwd()
-
-        guard !email.isEmpty else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
-        }
-        guard !password.isEmpty else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
-        }
-        guard !comfirmPwd.isEmpty else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strComfirmPwd), view: self)
-        }
-        guard password == comfirmPwd else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorPasswod(), view: self)
-        }
-        guard email.characters.count >= 8 else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorCount(strEmail), view: self)
-        }
-        guard password.characters.count >= 3 else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorCount(strPassword), view: self)
-        }
-
+        let validateResult = Validate.account(email: email, password: password, comfirmPwd: comfirmPwd)
         let userDefault = UserDefaults.standard
-        guard userDefault.bool(forKey: "hasId") else {
 
-            let signUpRequest = SignUpRequest(email: email, password:password)
-            Session.send(signUpRequest) { result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    userDefault.register(defaults: ["user_id" : response.id])
-                    userDefault.register(defaults: ["request_token" : response.requestToken])
-                    userDefault.set(true, forKey: "hasId")
-                    self.dismiss(animated: true, completion: nil)
-                case .failure(let error):
-                    print(error)
-                    UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
+        if validateResult == "ok" {
+
+            guard userDefault.bool(forKey: "hasId") else {
+
+                let signUpRequest = SignUpRequest(email: email, password:password)
+                Session.send(signUpRequest) { result in
+                    switch result {
+                    case .success(let response):
+                        print(response)
+                        userDefault.register(defaults: ["user_id" : response.id])
+                        userDefault.register(defaults: ["request_token" : response.requestToken])
+                        userDefault.set(true, forKey: "hasId")
+                        self.dismiss(animated: true, completion: nil)
+                    case .failure(let error):
+                        print(error)
+                        UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
+                    }
                 }
+
+                return
             }
-        return
-        }
         self.dismiss(animated: true, completion: nil)
+        } else {
+                UIAlertController.showAlert(error:validateResult, view: self)
+            }
     }
 
     override func viewDidLoad() {

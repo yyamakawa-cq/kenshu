@@ -37,6 +37,7 @@
 		50AA13611EADE46400E08A2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50AA135F1EADE46400E08A2A /* LaunchScreen.storyboard */; };
 		50AA136C1EADE46500E08A2A /* kenshuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA136B1EADE46500E08A2A /* kenshuTests.swift */; };
 		50AA13771EADE46500E08A2A /* kenshuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA13761EADE46500E08A2A /* kenshuUITests.swift */; };
+		50FD5EDF1F00A30A00C1CD50 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD5EDE1F00A30A00C1CD50 /* Validate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		50AA13721EADE46500E08A2A /* kenshuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kenshuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AA13761EADE46500E08A2A /* kenshuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kenshuUITests.swift; sourceTree = "<group>"; };
 		50AA13781EADE46500E08A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50FD5EDE1F00A30A00C1CD50 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				50AA13621EADE46400E08A2A /* Info.plist */,
 				504A3CDE1EB3475D002FB17C /* AccountViewController.swift */,
+				50FD5EDE1F00A30A00C1CD50 /* Validate.swift */,
 				500F84571EF7B3200018234F /* AlertDialog.swift */,
 				506D39FA1EE5150D00401F08 /* Api.swift */,
 				50AA13561EADE46400E08A2A /* AppDelegate.swift */,
@@ -398,6 +401,7 @@
 				500C51931EE7BC5500757E57 /* User.swift in Sources */,
 				50AA13591EADE46400E08A2A /* LoginViewController.swift in Sources */,
 				506D39FD1EE5175800401F08 /* SignUp.swift in Sources */,
+				50FD5EDF1F00A30A00C1CD50 /* Validate.swift in Sources */,
 				50AA13571EADE46400E08A2A /* AppDelegate.swift in Sources */,
 				505FCE5B1EEA5B68008F67D8 /* BookList.swift in Sources */,
 				504A3D291EB73A6E002FB17C /* BookListTableViewCell.swift in Sources */,

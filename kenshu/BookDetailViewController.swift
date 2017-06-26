@@ -24,36 +24,22 @@ class BookDetailViewController: UIViewController {
 
     //保存ボタンタップ
     @IBAction func didSaveButtonTap() {
-        let bookTitle = bookTitleTextField.text!
-        let bookPrice = bookPriceTextField.text!
-        let bookPurchaseDate = bookPurchaseDateTextField.text!
-        let bookImage = bookImageView.image
+        let title = bookTitleTextField.text!
+        let price = bookPriceTextField.text!
+        let purchaseDate = bookPurchaseDateTextField.text!
+        let image = bookImageView.image
+        let validateResult = Validate.book(
+            title: title,
+            price: price,
+            purchaseDate: purchaseDate,
+            image: image
+        )
 
-        guard !bookTitle.isEmpty else {
-            return UIAlertController.showAlert(
-                error: R.string.localizable.errorEmpty(R.string.localizable.bookTitle()),
-                view: self
-            )
+        if validateResult == "ok" {
+            saveBook(name:title, price:price, puruchaseDate: purchaseDate, image:image!)
+        } else {
+            UIAlertController.showAlert(error:validateResult, view: self)
         }
-        guard !bookPrice.isEmpty else {
-            return UIAlertController.showAlert(
-                error: R.string.localizable.errorEmpty(R.string.localizable.bookPrice()),
-                view: self
-            )
-        }
-        guard !bookPurchaseDate.isEmpty else {
-            return UIAlertController.showAlert(
-                error: R.string.localizable.errorEmpty(R.string.localizable.bookPurchaseDate()),
-                view:self
-            )
-        }
-        guard bookImage != R.image.sample() else {
-            return UIAlertController.showAlert(
-                error: R.string.localizable.errorEmpty(R.string.localizable.bookImage()),
-                view: self
-            )
-        }
-        saveBook(name:bookTitle, price:bookPrice, puruchaseDate: bookPurchaseDate, image:bookImage!)
     }
 
     //画像添付ボタンタップ

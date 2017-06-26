@@ -8,32 +8,28 @@ class LoginViewController: UIViewController {
     @IBAction func didSignInButtonTap() {
         let email = emailAddressTextField.text!
         let password = passwordTextField.text!
-        let strEmail = R.string.localizable.email()
-        let strPassword = R.string.localizable.password()
-
-        guard !email.isEmpty else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strEmail), view: self)
-        }
-        guard !password.isEmpty else {
-            return UIAlertController.showAlert(error: R.string.localizable.errorEmpty(strPassword), view: self)
-        }
-        let loginRequest = LoginRequest(email: email, password:password)
-        Session.send(loginRequest) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-                let userDefault = UserDefaults.standard
-                guard userDefault.integer(forKey: "user_id") == response.id else {
-                    userDefault.set(response.id, forKey: "user_id")
-                    userDefault.set(response.requestToken, forKey: "request_token")
-                    return
+        let validateResult = Validate.login(email: email, password: password)
+        if validateResult == "ok" {
+            let loginRequest = LoginRequest(email: email, password:password)
+            Session.send(loginRequest) { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                    let userDefault = UserDefaults.standard
+                    guard userDefault.integer(forKey: "user_id") == response.id else {
+                        userDefault.set(response.id, forKey: "user_id")
+                        userDefault.set(response.requestToken, forKey: "request_token")
+                        return
+                    }
+                    let nextView = R.storyboard.main.tabBarController()!
+                    self.present(nextView, animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
                 }
-                let nextView = R.storyboard.main.tabBarController()!
-                self.present(nextView, animated: true, completion: nil)
-            case .failure(let error):
-                print(error)
-                UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
             }
+        } else {
+            UIAlertController.showAlert(error:validateResult, view: self)
         }
     }
 
