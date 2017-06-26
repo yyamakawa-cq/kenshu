@@ -5,7 +5,7 @@ import Himotoki
 struct BookListRequest: ApiRequest {
     let page:String
 
-    typealias Response = BookGetResult
+    typealias Response = BookGetResponse
 
     var method: HTTPMethod {
         return .get

@@ -10,7 +10,6 @@
 		5008820C1ED58CC8008D1419 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5008820B1ED58CC8008D1419 /* .swiftlint.yml */; };
 		500C51931EE7BC5500757E57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C51921EE7BC5500757E57 /* User.swift */; };
 		500C51971EE8FFA900757E57 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C51961EE8FFA800757E57 /* Login.swift */; };
-		500F84541EF227360018234F /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84531EF227360018234F /* ImageDownloader.swift */; };
 		500F84561EF3B4720018234F /* BookEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84551EF3B4720018234F /* BookEdit.swift */; };
 		500F84581EF7B3200018234F /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500F84571EF7B3200018234F /* AlertDialog.swift */; };
 		5016754B1EDFD3E4008367C6 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016754A1EDFD3E4008367C6 /* DateFormat.swift */; };
@@ -63,7 +62,6 @@
 		5008820B1ED58CC8008D1419 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		500C51921EE7BC5500757E57 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		500C51961EE8FFA800757E57 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		500F84531EF227360018234F /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		500F84551EF3B4720018234F /* BookEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookEdit.swift; sourceTree = "<group>"; };
 		500F84571EF7B3200018234F /* AlertDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
 		5016754A1EDFD3E4008367C6 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				504A3D281EB73A6E002FB17C /* BookListTableViewCell.swift */,
 				504A3CD81EB34420002FB17C /* BookListViewController.swift */,
 				5016754A1EDFD3E4008367C6 /* DateFormat.swift */,
-				500F84531EF227360018234F /* ImageDownloader.swift */,
 				500C51961EE8FFA800757E57 /* Login.swift */,
 				50AA13581EADE46400E08A2A /* LoginViewController.swift */,
 				505DBC6D1EE102390040CF7F /* R.generated.swift */,
@@ -416,7 +413,6 @@
 				505FCE5D1EEA82DE008F67D8 /* BookAdd.swift in Sources */,
 				504A3CDF1EB3475D002FB17C /* AccountViewController.swift in Sources */,
 				500C51971EE8FFA900757E57 /* Login.swift in Sources */,
-				500F84541EF227360018234F /* ImageDownloader.swift in Sources */,
 				500F84561EF3B4720018234F /* BookEdit.swift in Sources */,
 				504A3CD91EB34420002FB17C /* BookListViewController.swift in Sources */,
 				506D39FB1EE5150D00401F08 /* Api.swift in Sources */,

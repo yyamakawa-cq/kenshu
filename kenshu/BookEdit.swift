@@ -9,7 +9,7 @@ struct BookEditRequest: ApiRequest {
     let purchaseDate:String
     let imageData:String
 
-    typealias Response = BookPostResult
+    typealias Response = BookPostResponse
 
     var method: HTTPMethod {
         return .patch

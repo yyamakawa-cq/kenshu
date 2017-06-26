@@ -20,19 +20,19 @@ struct Book: Decodable {
     }
 }
 
-struct BookGetResult:Decodable {
+struct BookGetResponse:Decodable {
     var book: [Book]
-    static func decode(_ e: Extractor) throws -> BookGetResult { // swiftlint:disable:this identifier_name
-        return try BookGetResult(
+    static func decode(_ e: Extractor) throws -> BookGetResponse { // swiftlint:disable:this identifier_name
+        return try BookGetResponse(
             book:e <|| "result"
         )
     }
 }
 
-struct BookPostResult:Decodable {
+struct BookPostResponse:Decodable {
     var bookId: Int
-    static func decode(_ e: Extractor) throws -> BookPostResult { // swiftlint:disable:this identifier_name
-        return try BookPostResult(
+    static func decode(_ e: Extractor) throws -> BookPostResponse { // swiftlint:disable:this identifier_name
+        return try BookPostResponse(
             bookId:e <| "book_id"
         )
     }
