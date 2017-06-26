@@ -9,7 +9,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookPriceTextField: UITextField!
 
-    var selectBook: Book!
+    var selectBook: BookGet!
     var screen: ViewType!
     var bookPurchaseDatePicker = UIDatePicker()
     var datePickerToolBar = UIToolbar()
@@ -25,21 +25,17 @@ class BookDetailViewController: UIViewController {
 
     //保存ボタンタップ
     @IBAction func didSaveButtonTap() {
-        let title = bookTitleTextField.text!
-        let price = bookPriceTextField.text!
-        let purchaseDate = bookPurchaseDateTextField.text!
-        let image = bookImageView.image
-        let validateResult = Validate.book(
-            title: title,
-            price: price,
-            purchaseDate: purchaseDate,
-            image: image
+        let book = BookPost(
+            image: bookImageView.image!,
+            name: bookTitleTextField.text!,
+            price: bookPriceTextField.text!,
+            purchaseDate: bookPurchaseDateTextField.text!
         )
-
+        let validateResult = Validate.book(book: book)
         guard validateResult.0 else {
             return UIAlertController.showAlert(error:validateResult.1, view: self)
         }
-        saveBook(name:title, price:price, puruchaseDate: purchaseDate, image:image!)
+        saveBook(book: book)
     }
 
     //画像添付ボタンタップ
@@ -76,8 +72,8 @@ class BookDetailViewController: UIViewController {
     }
 
     //ApiRequest
-    func saveBook(name:String, price:String, puruchaseDate:String, image:UIImage) {
-        let purchaseDate = puruchaseDate.replacingOccurrences(of: "/", with: "-")
+    func saveBook(book:BookPost) {
+        let purchaseDate = book.purchaseDate.replacingOccurrences(of: "/", with: "-")
         let imageSize = CGSize(width:160, height:100)
         let imageResize = bookImageView.image?.resizeImage(size: imageSize)
         let imageData = UIImagePNGRepresentation(imageResize!)! as NSData
@@ -87,8 +83,8 @@ class BookDetailViewController: UIViewController {
         case .edit:
             let bookEditRequest = BookEditRequest(
                 id:selectBook.id,
-                name: name,
-                price: Int(price)!,
+                name: book.name,
+                price: Int(book.price)!,
                 purchaseDate:purchaseDate,
                 imageData: imageString
             )
@@ -104,8 +100,8 @@ class BookDetailViewController: UIViewController {
             }
         case .add:
             let bookAddRequest = BookAddRequest(
-                name: name,
-                price: Int(price)!,
+                name: book.name,
+                price: Int(book.price)!,
                 purchaseDate:purchaseDate,
                 imageData: imageString
             )
@@ -154,7 +150,7 @@ class BookDetailViewController: UIViewController {
                 let purchaseDate = DateFormat.stringToDate(date: selectBook.purchaseDate)
                 let imageData = URL(string:selectBook.imageUrl)
                 bookImageView.kf.setImage(with:imageData)
-                bookTitleTextField.text = selectBook.title
+                bookTitleTextField.text = selectBook.name
                 bookPriceTextField.text = selectBook.price.description
                 bookPurchaseDateTextField.text = DateFormat.dateToString(date: purchaseDate as Date)
             case .add:

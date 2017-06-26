@@ -7,7 +7,7 @@ class BookListViewController: UIViewController {
 
     let pageFrom = 0
     var pageTo:Int?
-    var books: [Book] = []
+    var books: [BookGet] = []
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
         let nextView = R.storyboard.main.bookDetailVCAdd()!
@@ -64,7 +64,7 @@ extension BookListViewController: UITableViewDelegate {
         //セルに値を設定
         cell?.setCellBookData(
             imageUrl: books[indexPath.row].imageUrl,
-            title: books[indexPath.row].title,
+            title: books[indexPath.row].name,
             price: books[indexPath.row].price,
             purchaseDate: books[indexPath.row].purchaseDate
         )

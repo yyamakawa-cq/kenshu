@@ -41,22 +41,22 @@ class Validate {
         return (true,"")
     }
 
-    static func book(title: String, price:String, purchaseDate:String, image: UIImage?) -> (Bool, error: String) {
+    static func book(book:BookPost) -> (Bool, error: String) {
         let strTitle = R.string.localizable.bookTitle()
         let strPrice = R.string.localizable.bookPrice()
         let strPurchaseDate = R.string.localizable.bookPurchaseDate()
         let strImage = R.string.localizable.bookImage()
 
-        guard !title.isEmpty else {
+        guard !book.name.isEmpty else {
             return (false,R.string.localizable.errorEmpty(strTitle))
         }
-        guard !price.isEmpty else {
+        guard !book.price.isEmpty else {
             return (false,R.string.localizable.errorEmpty(strPrice))
         }
-        guard !purchaseDate.isEmpty else {
+        guard !book.purchaseDate.isEmpty else {
             return (false, R.string.localizable.errorEmpty(strPurchaseDate))
         }
-        guard image != R.image.sample() else {
+        guard book.image != R.image.sample() else {
             return (false, R.string.localizable.errorEmpty(strImage))
         }
         return (true,"")
