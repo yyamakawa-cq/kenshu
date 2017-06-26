@@ -9,7 +9,6 @@ class DateFormat {
     }
     class func stringToDate(date: String) -> NSDate {
         let dateFomatter = DateFormatter()
-        dateFomatter.timeZone = TimeZone.current
         if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
             dateFomatter.locale = Locale(identifier: countryCode)
         }
