@@ -39,6 +39,7 @@
 		50AA13771EADE46500E08A2A /* kenshuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AA13761EADE46500E08A2A /* kenshuUITests.swift */; };
 		50FD5EDF1F00A30A00C1CD50 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD5EDE1F00A30A00C1CD50 /* Validate.swift */; };
 		50FD5EE11F00CE8B00C1CD50 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FD5EE01F00CE8B00C1CD50 /* Kingfisher.framework */; };
+		50FD5EE31F00E45A00C1CD50 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD5EE21F00E45A00C1CD50 /* ImageResize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		50AA13781EADE46500E08A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50FD5EDE1F00A30A00C1CD50 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		50FD5EE01F00CE8B00C1CD50 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		50FD5EE21F00E45A00C1CD50 /* ImageResize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				503E1F1A1ED6DA4800FC3F75 /* Book.swift */,
 				505FCE5C1EEA82DE008F67D8 /* BookAdd.swift */,
 				504A3CE01EB34805002FB17C /* BookDetailViewController.swift */,
+				50FD5EE21F00E45A00C1CD50 /* ImageResize.swift */,
 				500F84551EF3B4720018234F /* BookEdit.swift */,
 				505FCE5A1EEA5B68008F67D8 /* BookList.swift */,
 				504A3D281EB73A6E002FB17C /* BookListTableViewCell.swift */,
@@ -418,6 +421,7 @@
 				504A3CD91EB34420002FB17C /* BookListViewController.swift in Sources */,
 				506D39FB1EE5150D00401F08 /* Api.swift in Sources */,
 				504A3CDB1EB3461E002FB17C /* SettingViewController.swift in Sources */,
+				50FD5EE31F00E45A00C1CD50 /* ImageResize.swift in Sources */,
 				503E1F1B1ED6DA4800FC3F75 /* Book.swift in Sources */,
 				505DBC6E1EE102390040CF7F /* R.generated.swift in Sources */,
 				504A3CE11EB34805002FB17C /* BookDetailViewController.swift in Sources */,
