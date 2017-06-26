@@ -36,11 +36,10 @@ class BookDetailViewController: UIViewController {
             image: image
         )
 
-        if validateResult == "ok" {
-            saveBook(name:title, price:price, puruchaseDate: purchaseDate, image:image!)
-        } else {
-            UIAlertController.showAlert(error:validateResult, view: self)
+        guard validateResult.0 else {
+            return UIAlertController.showAlert(error:validateResult.1, view: self)
         }
+        saveBook(name:title, price:price, puruchaseDate: purchaseDate, image:image!)
     }
 
     //画像添付ボタンタップ

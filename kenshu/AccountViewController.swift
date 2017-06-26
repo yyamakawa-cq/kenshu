@@ -17,10 +17,10 @@ class AccountViewController: UIViewController {
         let validateResult = Validate.account(email: email, password: password, comfirmPwd: comfirmPwd)
         let userDefault = UserDefaults.standard
 
-        if validateResult == "ok" {
-
-            guard userDefault.bool(forKey: "hasId") else {
-
+        guard validateResult.0 else {
+            return UIAlertController.showAlert(error:validateResult.1, view: self)
+        }
+        guard userDefault.bool(forKey: "hasId") else {
                 let signUpRequest = SignUpRequest(email: email, password:password)
                 Session.send(signUpRequest) { result in
                     switch result {
@@ -35,13 +35,9 @@ class AccountViewController: UIViewController {
                         UIAlertController.showAlert(error: R.string.localizable.errorApi(), view: self)
                     }
                 }
-
                 return
             }
         self.dismiss(animated: true, completion: nil)
-        } else {
-                UIAlertController.showAlert(error:validateResult, view: self)
-            }
     }
 
     override func viewDidLoad() {
