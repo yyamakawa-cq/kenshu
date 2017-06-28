@@ -1,17 +1,4 @@
 "Back" = "戻る";
 "Close" = "閉じる";
 "Done" = "完了";
-"Ok" = "OK";
 "Currency" = "%d円";
-"Error" = "エラー";
-"ErrorEmpty" = "%@が空";
-"ErrorPasswod" = "確認パスワードが違う";
-"ErrorCount" = "%@の文字数が正しくない";
-"ErrorApi" = "APIリクエストエラー";
-"email" = "メールアドレス";
-"password" = "パスワード";
-"comfirmPwd" = "確認パスワード";
-"bookTitle" = "書籍名";
-"bookPrice" = "金額";
-"bookPurchaseDate" = "購入日";
-"bookImage" = "表紙画像";

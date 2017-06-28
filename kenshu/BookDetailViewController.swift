@@ -1,15 +1,12 @@
 import UIKit
-import APIKit
-import Kingfisher
 
 class BookDetailViewController: UIViewController {
-
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookPurchaseDateTextField: UITextField!
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookPriceTextField: UITextField!
 
-    var selectBook: BookGet!
+    var selectBook: Book!
     var screen: ViewType!
     var bookPurchaseDatePicker = UIDatePicker()
     var datePickerToolBar = UIToolbar()
@@ -18,37 +15,7 @@ class BookDetailViewController: UIViewController {
         case add, edit
     }
 
-    //閉じるボタンタップ
-    @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    //保存ボタンタップ
-    @IBAction func didSaveButtonTap() {
-        let book = BookPost(
-            image: bookImageView.image!,
-            name: bookTitleTextField.text!,
-            price: bookPriceTextField.text!,
-            purchaseDate: bookPurchaseDateTextField.text!
-        )
-        let validateResult = Validate.book(book: book)
-        guard validateResult.0 else {
-            return UIAlertController.showAlert(error:validateResult.1, view: self)
-        }
-        saveBook(book: book)
-    }
-
-    //画像添付ボタンタップ
-    @IBAction func didPicAttachButtonTap(_ sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = .photoLibrary
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-        }
-    }
-
-    //購入日タップ
+    /* 購入日入力 */
     @IBAction func didBookPurchaseDateTapped() {
         //Pickerの表示
         bookPurchaseDatePicker.addTarget(
@@ -71,59 +38,12 @@ class BookDetailViewController: UIViewController {
         bookPurchaseDateTextField.inputAccessoryView = datePickerToolBar
     }
 
-    //ApiRequest
-    func saveBook(book:BookPost) {
-        let purchaseDate = book.purchaseDate.replacingOccurrences(of: "/", with: "-")
-        let imageSize = CGSize(width:160, height:100)
-        let imageResize = book.image.resizeImage(size: imageSize)
-        let imageData = UIImagePNGRepresentation(imageResize!)! as NSData
-        let imageString = imageData.base64EncodedString()
-
-        switch screen! {
-        case .edit:
-            let bookEditRequest = BookEditRequest(
-                id:selectBook.id,
-                name: book.name,
-                price: Int(book.price)!,
-                purchaseDate:purchaseDate,
-                imageData: imageString
-            )
-            Session.send(bookEditRequest) { result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    self.navigationController?.popViewController(animated: true)
-                case .failure(let error):
-                    print(error)
-                    UIAlertController.showAlert(error: R.string.localizable.errorApi(),view: self)
-                }
-            }
-        case .add:
-            let bookAddRequest = BookAddRequest(
-                name: book.name,
-                price: Int(book.price)!,
-                purchaseDate:purchaseDate,
-                imageData: imageString
-            )
-            Session.send(bookAddRequest) { result in
-                switch result {
-                case .success(let response):
-                    print(response)
-                    self.dismiss(animated: true, completion: nil)
-                case .failure(let error):
-                    print(error)
-                    UIAlertController.showAlert(error: R.string.localizable.errorApi(),view: self)
-                }
-            }
-        }
-    }
-
     //Pickerで選択した値をTextFieldに入れる
     func didDateChanged(sender: UIDatePicker) {
         bookPurchaseDateTextField.text = DateFormat.dateToString(date: sender.date)
     }
 
-    //Picker完了ボタンタップ
+    //完了ボタンタップ
     func didDatePickerDoneTap() {
         bookPurchaseDateTextField.resignFirstResponder()
     }
@@ -133,9 +53,25 @@ class BookDetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    //閉じるボタンタップ
+    @IBAction func didCloseButtonTap(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    /* 画像添付 */
+    //画像添付ボタンタップでアルバムを表示
+    @IBAction func didPicAttachButtonTap(_ sender: AnyObject) {
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         switch screen! {
             case .edit:
                 //戻るボタンの設定
@@ -147,22 +83,22 @@ class BookDetailViewController: UIViewController {
                 )
                 self.navigationItem.leftBarButtonItem = leftButton
                 //既存の値の表示
-                let purchaseDate = DateFormat.stringToDate(date: selectBook.purchaseDate)
-                let imageData = URL(string:selectBook.imageUrl)
-                bookImageView.kf.setImage(with:imageData)
-                bookTitleTextField.text = selectBook.name
-                bookPriceTextField.text = selectBook.price.description
-                bookPurchaseDateTextField.text = DateFormat.dateToString(date: purchaseDate as Date)
+                bookImageView.image = UIImage(named:selectBook.imageUrl)
+                bookTitleTextField.text = selectBook.title
+                bookPriceTextField?.text = selectBook.price.description
+                bookPurchaseDateTextField?.text = selectBook.purchasedDate
             case .add:
                 bookImageView?.image = R.image.sample()
             }
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
 
 extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    /* 画像添付 */
     //選んだ画像を表示する
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
