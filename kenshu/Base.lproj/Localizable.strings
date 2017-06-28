@@ -1,4 +1,17 @@
 "Back" = "Back";
 "Close" = "Close";
 "Done" = "Done";
+"Ok" = "OK";
 "Currency" = "%d";
+"Error" = "Error";
+"ErrorEmpty" = "%@ is empty";
+"ErrorPasswod" = "comfirm password is not correct";
+"ErrorCount" = "%@ is not enough word count";
+"ErrorApi" = "API request error";
+"email" = "email";
+"password" = "password";
+"comfirmPwd" = "comfirmPwd";
+"bookTitle" = "booktitle";
+"bookPrice" = "bookprice";
+"bookPurchaseDate" = "bookpurchasedate";
+"bookImage" = "bookimage";

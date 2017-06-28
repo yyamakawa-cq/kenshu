@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //初回起動判定
         let userDefault = UserDefaults.standard
-        let dict = ["firstLaunch": true]
+        let dict = ["hasId": false]
         userDefault.register(defaults: dict)
         return true
     }
