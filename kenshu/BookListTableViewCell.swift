@@ -10,12 +10,12 @@ class BookListTableViewCell: UITableViewCell {
     //更新日を表示するLabel
     @IBOutlet weak var bookPurchaseDateLabel: UILabel!
 
-    func setCellBookData(imageUrl:String, title:String, price:Int, purchaseDate:String) {
-        let imageUrl = URL(string:imageUrl)
-        let purchaseDate = DateFormat.stringToDate(date:purchaseDate)
+    func setCellBookData(book:BookGet) {
+        let imageUrl = URL(string:book.imageUrl)
+        let purchaseDate = DateFormat.stringToDate(date:book.purchaseDate)
         bookImageView.kf.setImage(with:imageUrl)
-        bookTitleLabel.text = title
-        bookPriceLabel.text = R.string.localizable.currency(price)
+        bookTitleLabel.text = book.name
+        bookPriceLabel.text = R.string.localizable.currency(book.price)
         bookPurchaseDateLabel.text = DateFormat.dateToString(date: purchaseDate as Date)
     }
 

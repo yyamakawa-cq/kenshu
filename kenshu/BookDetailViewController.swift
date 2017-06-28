@@ -75,7 +75,7 @@ class BookDetailViewController: UIViewController {
     func saveBook(book:BookPost) {
         let purchaseDate = book.purchaseDate.replacingOccurrences(of: "/", with: "-")
         let imageSize = CGSize(width:160, height:100)
-        let imageResize = bookImageView.image?.resizeImage(size: imageSize)
+        let imageResize = book.image.resizeImage(size: imageSize)
         let imageData = UIImagePNGRepresentation(imageResize!)! as NSData
         let imageString = imageData.base64EncodedString()
 

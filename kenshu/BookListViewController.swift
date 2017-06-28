@@ -5,8 +5,8 @@ class BookListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let pageFrom = 0
-    var pageTo:Int?
+    let bookParLoad = 160
+    var offset = 0
     var books: [BookGet] = []
 
     @IBAction func didAddButtonTap(_ sender: UIBarButtonItem) {
@@ -16,12 +16,28 @@ class BookListViewController: UIViewController {
     }
 
     @IBAction func didLoadButtonTap(_ sender: Any) {
-        pageTo = pageTo!+1
-        let page = pageFrom.description + "-" + ((pageTo)?.description)!
-        getBooks(page: page)
+        let currentOffset = offset+bookParLoad
+        let page = currentOffset.description + "-" + (currentOffset+bookParLoad).description
+        let bookListRequest = BookListRequest(page: page)
+        Session.send(bookListRequest) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+                self.books += response.book
+                guard response.book.isEmpty else {
+                    self.offset+=self.bookParLoad
+                    return
+                }
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
-    func getBooks(page: String) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let page = "0-160"
         let bookListRequest = BookListRequest(page: page)
         Session.send(bookListRequest) { result in
             switch result {
@@ -35,15 +51,8 @@ class BookListViewController: UIViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        let page = pageFrom.description + "-" + (pageTo?.description)!
-        getBooks(page:page)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageTo = 160
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,12 +71,7 @@ extension BookListViewController: UITableViewDelegate {
         //セルを取得
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.myCell)
         //セルに値を設定
-        cell?.setCellBookData(
-            imageUrl: books[indexPath.row].imageUrl,
-            title: books[indexPath.row].name,
-            price: books[indexPath.row].price,
-            purchaseDate: books[indexPath.row].purchaseDate
-        )
+        cell?.setCellBookData(book: books[indexPath.row])
         return cell!
     }
 }
