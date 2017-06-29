@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class Validate {
-    static func account(email:String, password:String, comfirmPwd:String) -> (Bool, error:String) {
+    static func account(email:String, password:String, comfirmPwd:String) -> (result:Bool, error:String) {
         let strEmail = R.string.localizable.email()
         let strPassword = R.string.localizable.password()
         let strComfirmPwd = R.string.localizable.comfirmPwd()
@@ -28,7 +28,7 @@ class Validate {
         return (true,"")
     }
 
-    static func login(email:String, password:String) -> (Bool, error:String) {
+    static func login(email:String, password:String) -> (result:Bool, error:String) {
         let strEmail = R.string.localizable.email()
         let strPassword = R.string.localizable.password()
 
@@ -41,7 +41,7 @@ class Validate {
         return (true,"")
     }
 
-    static func book(book:BookPost) -> (Bool, error: String) {
+    static func book(book:BookPost) -> (result:Bool, error: String) {
         let strTitle = R.string.localizable.bookTitle()
         let strPrice = R.string.localizable.bookPrice()
         let strPurchaseDate = R.string.localizable.bookPurchaseDate()

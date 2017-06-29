@@ -17,8 +17,8 @@ class AccountViewController: UIViewController {
         let validateResult = Validate.account(email: email, password: password, comfirmPwd: comfirmPwd)
         let userDefault = UserDefaults.standard
 
-        guard validateResult.0 else {
-            return UIAlertController.showAlert(error:validateResult.1, view: self)
+        guard validateResult.result else {
+            return UIAlertController.showAlert(error:validateResult.error, view: self)
         }
         guard userDefault.bool(forKey: "hasId") else {
                 let signUpRequest = SignUpRequest(email: email, password:password)

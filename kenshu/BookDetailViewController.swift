@@ -32,8 +32,8 @@ class BookDetailViewController: UIViewController {
             purchaseDate: bookPurchaseDateTextField.text!
         )
         let validateResult = Validate.book(book: book)
-        guard validateResult.0 else {
-            return UIAlertController.showAlert(error:validateResult.1, view: self)
+        guard validateResult.result else {
+            return UIAlertController.showAlert(error:validateResult.error, view: self)
         }
         saveBook(book: book)
     }
