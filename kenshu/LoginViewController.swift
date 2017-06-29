@@ -9,8 +9,8 @@ class LoginViewController: UIViewController {
         let email = emailAddressTextField.text!
         let password = passwordTextField.text!
         let validateResult = Validate.login(email: email, password: password)
-        guard validateResult.0 else {
-            return UIAlertController.showAlert(error:validateResult.1, view: self)
+        guard validateResult.result else {
+            return UIAlertController.showAlert(error:validateResult.error, view: self)
         }
         let loginRequest = LoginRequest(email: email, password:password)
         Session.send(loginRequest) { result in
